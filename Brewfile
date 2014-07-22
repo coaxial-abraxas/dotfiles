@@ -42,6 +42,7 @@ cask install flux
 cask install gfxcardstatus
 cask install google-chrome
 cask install iterm2
+cask install jumpcut
 cask install lastpass-universal
 cask install limechat
 cask install sublime-text3
