@@ -230,6 +230,20 @@ defaults write com.apple.ActivityMonitor UpdatePeriod -int 0
 # Install Sublime Text settings
 cp -r init/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
 
+
+##############################################
+#                   LimeChat                 #
+##############################################
+
+# What to do when pasting lots of text
+defaults write net.limechat.LimeChat Preferences.General.paste_command -string "privmsg"
+
+# Default format for gists
+defaults write net.limechat.LimeChat Preferences.General.paste_syntax -string "ruby"
+
+# Hide join and leave messages
+defaults write net.limechat.LimeChat Preferences.General.show_join_leave -bool false
+
 ##############################################
 #             Kill affected apps             #
 ##############################################
