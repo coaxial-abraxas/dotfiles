@@ -42,19 +42,59 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
+
+
 # A nicer prompt
 # Define some colors
-RED="\033[0;31m"
-YELLOW="\033[0;33m"
-GREEN="\033[0;32m"
-OCHRE="\033[38;5;95m"
-BLUE="\033[0;34m"
-WHITE="\033[0;37m"
-RESET="\033[0m"
+BLACK="\e[0;30m"
+BLACKBOLD="\e[1;30m"
+RED="\e[0;31m"
+REDBOLD="\e[1;31m"
+GREEN="\e[0;32m"
+GREENBOLD="\e[1;32m"
+YELLOW="\e[0;33m"
+YELLOWBOLD="\e[1;33m"
+BLUE="\e[0;34m"
+BLUEBOLD="\e[1;34m"
+PURPLE="\e[0;35m"
+PURPLEBOLD="\e[1;35m"
+CYAN="\e[0;36m"
+CYANBOLD="\e[1;36m"
+WHITE="\e[0;37m"
+WHITEBOLD="\e[1;37m"
+RESET="\e[0m"
 
 # And some helper functions
-function git_branch() {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+# Heavily inspired from http://blog.deadlypenguin.com/blog/2013/10/24/adding-git-status-to-bash/
+function _git_prompt() {
+  local git_status="`git status -unormal 2>&1`"
+  if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+    if [[ "$git_status" =~ nothing\ to\ commit ]]; then
+      local ansi=$GREENBOLD
+    elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
+      local ansi=$REDBOLD
+    else
+      local ansi=$YELLOWBOLD
+    fi
+    if [[ "$git_status" =~ On\ branch\ ([^[:space:]]+) ]]; then
+      branch=${BASH_REMATCH[1]}
+      #test "$branch" != master || branch=' '
+    else
+      # Detached HEAD.  (branch=HEAD is a faster alternative.)
+      branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
+      echo HEAD`)"
+    fi
+    echo -n '[\['"$ansi"'\]'"$branch"'\[\e[0m\]]'
+  fi
 }
-
-export PS1="$RESET$GREEN$(git_branch): "
+ 
+function report_status() {
+  RET_CODE=$?
+  if [[ $RET_CODE -ne 0 ]] ; then
+    echo -ne "[\[$RED\]$RET_CODE\[$NC\]]"
+  fi
+}
+ 
+export _PS1="$WHITEBOLD\[$NC\] \w"
+export PS2="\[$NC\]> "
+export PROMPT_COMMAND='_status=$(report_status);export PS1="$(_git_prompt)${_status}${_PS1}\$ $RESET";unset _status;'
