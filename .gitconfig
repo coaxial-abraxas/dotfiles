@@ -1,0 +1,22 @@
+[user]
+    name = "Pierre-Yves Poujade"
+    email = py@poujade.org
+[core]
+    excludefiles = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
+    excludesfiles = ~/.gitignore_global
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[alias]
+    co = checkout
+    a = add
+    cm = commit -m
+    cam = commit -am
+    s = status
+[push]
+    default = simple

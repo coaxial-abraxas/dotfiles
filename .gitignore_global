@@ -1,7 +1,11 @@
-### OSX ###
+# OS generated files
 .DS_Store
-.AppleDouble
-.LSOverride
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # Icon must end with two \r
 Icon
@@ -20,3 +24,13 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Sublime Text files
+.project
+.idea
+.secret
+
+# Random files
+*~
+*.swp
+/tmp
