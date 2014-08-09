@@ -42,15 +42,14 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
-
-
 # A nicer prompt
 # Colours and help from: https://github.com/nicholasjhenry/dotfiles/blob/master/bash/prompt
-
+# And also http://misc.flogisoft.com/bash/tip_colors_and_formatting
+# And http://mywiki.wooledge.org/BashFAQ/053
+ 
 function bash_prompt {
   # Define some colors
   # regular colors
-  DEFAULT="\[\033[;0m\]"
   K="\[\033[0;30m\]"    # black
   R="\[\033[0;31m\]"    # red
   G="\[\033[0;32m\]"    # green
@@ -59,7 +58,7 @@ function bash_prompt {
   M="\[\033[0;35m\]"    # magenta
   C="\[\033[0;36m\]"    # cyan
   W="\[\033[0;37m\]"    # white
-
+ 
   # emphasized (bolded) colors
   EMK="\[\033[1;30m\]"
   EMR="\[\033[1;31m\]"
@@ -69,7 +68,7 @@ function bash_prompt {
   EMM="\[\033[1;35m\]"
   EMC="\[\033[1;36m\]"
   EMW="\[\033[1;37m\]"
-
+ 
   # background colors
   BGK="\[\033[40m\]"
   BGR="\[\033[41m\]"
@@ -79,12 +78,12 @@ function bash_prompt {
   BGM="\[\033[45m\]"
   BGC="\[\033[46m\]"
   BGW="\[\033[47m\]"
-
-  RESET="\e[0m"
-
+ 
+  DEFAULT="\[\033[;0m\]"
+  
   UC=$W                       # user's color
   [ $UID -eq "0" ] && UC=$R   # root's color
-
+ 
   # Some helper functions
   # Heavily inspired from http://blog.deadlypenguin.com/blog/2013/10/24/adding-git-status-to-bash/
   function _git_prompt() {
@@ -109,9 +108,9 @@ function bash_prompt {
     fi
   }
      
-  export _PS1="\[$NC\] $EMR\$(~/.rvm/bin/rvm-prompt) $EMC\w"
+  export _PS1="\[$NC\] $EMR\$(~/.rvm/bin/rvm-prompt) $EMC\w$RESET"
   export PS2="\[$NC\]> "
-  export PROMPT_COMMAND='export PS1="$(_git_prompt)${_PS1}\n$B\$ $RESET";'
+  export PROMPT_COMMAND='export PS1="$(_git_prompt)${_PS1}\n$B\$ $DEFAULT";'
 }
-
+ 
 bash_prompt
