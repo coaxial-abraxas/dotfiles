@@ -50,39 +50,39 @@ fi
 function bash_prompt {
   # Define some colors
   # regular colors
-  K="\[\033[0;30m\]"    # black
-  R="\[\033[0;31m\]"    # red
-  G="\[\033[0;32m\]"    # green
-  Y="\[\033[0;33m\]"    # yellow
-  B="\[\033[0;34m\]"    # blue
-  M="\[\033[0;35m\]"    # magenta
-  C="\[\033[0;36m\]"    # cyan
-  W="\[\033[0;37m\]"    # white
+  k="\[\e[0;30m\]"    # black
+  r="\[\e[0;31m\]"    # red
+  g="\[\e[0;32m\]"    # green
+  y="\[\e[0;33m\]"    # yellow
+  b="\[\e[0;34m\]"    # blue
+  m="\[\e[0;35m\]"    # magenta
+  c="\[\e[0;36m\]"    # cyan
+  w="\[\e[0;37m\]"    # white
  
   # emphasized (bolded) colors
-  EMK="\[\033[1;30m\]"
-  EMR="\[\033[1;31m\]"
-  EMG="\[\033[1;32m\]"
-  EMY="\[\033[1;33m\]"
-  EMB="\[\033[1;34m\]"
-  EMM="\[\033[1;35m\]"
-  EMC="\[\033[1;36m\]"
-  EMW="\[\033[1;37m\]"
+  emk="\[\e[1;30m\]"
+  emr="\[\e[1;31m\]"
+  emg="\[\e[1;32m\]"
+  emy="\[\e[1;33m\]"
+  emb="\[\e[1;34m\]"
+  emm="\[\e[1;35m\]"
+  emc="\[\e[1;36m\]"
+  emw="\[\e[1;37m\]"
  
   # background colors
-  BGK="\[\033[40m\]"
-  BGR="\[\033[41m\]"
-  BGG="\[\033[42m\]"
-  BGY="\[\033[43m\]"
-  BGB="\[\033[44m\]"
-  BGM="\[\033[45m\]"
-  BGC="\[\033[46m\]"
-  BGW="\[\033[47m\]"
+  bgk="\[\e[40m\]"
+  bgr="\[\e[41m\]"
+  bgg="\[\e[42m\]"
+  bgy="\[\e[43m\]"
+  bgb="\[\e[44m\]"
+  bgm="\[\e[45m\]"
+  bgc="\[\e[46m\]"
+  bgw="\[\e[47m\]"
  
-  DEFAULT="\[\033[;0m\]"
+  reset="\[\e[0m\]"
   
-  UC=$W                       # user's color
-  [ $UID -eq "0" ] && UC=$R   # root's color
+  UC=$w                       # user's color
+  [ $UID -eq "0" ] && UC=$r   # root's color
  
   # Some helper functions
   # Heavily inspired from http://blog.deadlypenguin.com/blog/2013/10/24/adding-git-status-to-bash/
@@ -90,11 +90,11 @@ function bash_prompt {
     local git_status="`git status -unormal 2>&1`"
     if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
       if [[ "$git_status" =~ nothing\ to\ commit ]]; then
-        local ansi=$EMG
+        local ansi=$emg
       elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
-        local ansi=$EMR
+        local ansi=$emr
       else
-        local ansi=$EMY
+        local ansi=$emy
       fi
       if [[ "$git_status" =~ On\ branch\ ([^[:space:]]+) ]]; then
         branch=${BASH_REMATCH[1]}
@@ -104,13 +104,13 @@ function bash_prompt {
         branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
         echo HEAD`)"
       fi
-      echo -n '[\['"$ansi"'\]'"$branch"'\[\e[0m\]]'
+      echo -n '[\['"$ansi"'\]'"$branch"'\[$reset\]]'
     fi
   }
      
-  export _PS1="\[$NC\] $EMR\$(~/.rvm/bin/rvm-prompt) $EMC\w$RESET"
+  export _PS1="\[$NC\] $emr\$(~/.rvm/bin/rvm-prompt) $emc\w$reset"
   export PS2="\[$NC\]> "
-  export PROMPT_COMMAND='export PS1="$(_git_prompt)${_PS1}\n$B\$ $DEFAULT";'
+  export PROMPT_COMMAND='export PS1="$(_git_prompt)${_PS1}$reset\n$b\$ $reset";'
 }
  
 bash_prompt
