@@ -104,12 +104,11 @@ function bash_prompt {
         branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
         echo HEAD`)"
       fi
-      echo -n '[\['"$ansi"'\]'"$branch"'\[$reset\]]'
+      echo -n '['$ansi$branch$reset']'
     fi
   }
      
-  export _PS1="\[$NC\] $emr\$(~/.rvm/bin/rvm-prompt) $emc\w$reset"
-  export PS2="\[$NC\]> "
+  export _PS1="$emr\$(~/.rvm/bin/rvm-prompt) $emc\w$reset"
   export PROMPT_COMMAND='export PS1="$(_git_prompt)${_PS1}$reset\n$b\$ $reset";'
 }
  
