@@ -109,7 +109,7 @@ function bash_prompt {
   }
      
   export _PS1="$emr\$(~/.rvm/bin/rvm-prompt) $emc\w$reset"
-  export PROMPT_COMMAND='export PS1="$(_git_prompt)${_PS1}$reset\n$b\$ $reset";'
+  export PROMPT_COMMAND='export PS1="$(_git_prompt)${_PS1}$reset\n$y\u@\h $b\$ $reset";'
 }
  
 bash_prompt
