@@ -104,7 +104,7 @@ function bash_prompt {
         branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
         echo HEAD`)"
       fi
-      echo -n ' ['$ansi$branch$reset'] '
+      echo -n '['$ansi$branch$reset'] '
     fi
   }
      
