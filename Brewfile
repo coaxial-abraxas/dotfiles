@@ -35,7 +35,7 @@ tap caskroom/versions
 install brew-cask
 
 # And my favourtie apps
-cask install airmail
+cask install airmail-beta
 cask install alfred
 cask install caffeine
 cask install flux
