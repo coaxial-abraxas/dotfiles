@@ -1,3 +1,5 @@
+# Use brew binaries before system binaries
+export PATH='/usr/local/bin:$PATH'
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin";
@@ -46,7 +48,7 @@ fi
 # Colours and help from: https://github.com/nicholasjhenry/dotfiles/blob/master/bash/prompt
 # And also http://misc.flogisoft.com/bash/tip_colors_and_formatting
 # And http://mywiki.wooledge.org/BashFAQ/053
- 
+
 function bash_prompt {
   # Define some colors
   # regular colors
@@ -58,7 +60,7 @@ function bash_prompt {
   m="\[\e[0;35m\]"    # magenta
   c="\[\e[0;36m\]"    # cyan
   w="\[\e[0;37m\]"    # white
- 
+
   # emphasized (bolded) colors
   emk="\[\e[1;30m\]"
   emr="\[\e[1;31m\]"
@@ -68,7 +70,7 @@ function bash_prompt {
   emm="\[\e[1;35m\]"
   emc="\[\e[1;36m\]"
   emw="\[\e[1;37m\]"
- 
+
   # background colors
   bgk="\[\e[40m\]"
   bgr="\[\e[41m\]"
@@ -78,12 +80,12 @@ function bash_prompt {
   bgm="\[\e[45m\]"
   bgc="\[\e[46m\]"
   bgw="\[\e[47m\]"
- 
+
   reset="\[\e[0m\]"
-  
+
   UC=$w                       # user's color
   [ $UID -eq "0" ] && UC=$r   # root's color
- 
+
   # Some helper functions
   # Heavily inspired from http://blog.deadlypenguin.com/blog/2013/10/24/adding-git-status-to-bash/
   function _git_prompt() {
@@ -107,9 +109,9 @@ function bash_prompt {
       echo -n '['$ansi$branch$reset'] '
     fi
   }
-     
+
   export _PS1="$emr\$(~/.rvm/bin/rvm-prompt) $emc\w$reset"
   export PROMPT_COMMAND='export PS1="\n$reset$(_git_prompt)${_PS1}$reset\n$m\u@$emm\h$b \$ $reset";'
 }
- 
+
 bash_prompt
