@@ -27,7 +27,7 @@ tap homebrew/versions
 install git
 install tree
 install wget --enable-iri
-install nano
+install vim
 
 # Install cask
 tap caskroom/cask
