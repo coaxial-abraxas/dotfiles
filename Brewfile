@@ -20,21 +20,32 @@ install gnu-sed --default-names
 install bash
 install bash-completion
 
+# Add extra repos
 tap homebrew/dupes
 tap homebrew/versions
+tap telemachus/homebrew-desc
 
 # Install the essentials
 install git
 install tree
 install wget --enable-iri
 install vim
+install ssh-copy-id
+install boot2docker
+install docker
+install fig
+install mobile-shell
+install nvm 
+install openssl
+install wget
+install tree
 
 # Install cask
 tap caskroom/cask
 tap caskroom/versions
 install brew-cask
 
-# And my favourtie apps
+# And my favourite apps
 cask install airmail-beta
 cask install alfred
 cask install caffeine
@@ -46,6 +57,15 @@ cask install jumpcut
 cask install lastpass-universal
 cask install limechat
 cask install sublime-text3
+cask install telegram
+cask install vlc
+cask install copy
+cask install keka
+cask install menumeters
+cask install spotify
+cask install xquartz
+cask install vagrant
+cask install virtualbox
 
 # Add casks to Alfred
 cask alfred link
