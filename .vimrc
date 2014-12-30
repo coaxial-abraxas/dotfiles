@@ -118,3 +118,9 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Show suggestions above the command line when hitting <Tab>
 set wildmenu
+
+" Set tabs to 2 spaces
+:set tabstop=2
+:set shiftwidth=2
+:set smarttab
+:set expandtab
