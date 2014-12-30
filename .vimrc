@@ -99,3 +99,22 @@ endif
 
 " Count lines
 :set nu
+
+" Display relative line numbers
+:set relativenumber
+
+" Turn relative numbering on/off with Ctrl-t
+function! TRelative()
+	set relativenumber!
+endfunc
+
+noremap <c-t> :call TRelative()<cr>
+
+" Show delimiter for text being edited
+set cpoptions+=$
+
+" Clear search highlight with Ctrl-l
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+" Show suggestions above the command line when hitting <Tab>
+set wildmenu
