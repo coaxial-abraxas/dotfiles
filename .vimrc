@@ -124,3 +124,6 @@ set wildmenu
 :set shiftwidth=2
 :set smarttab
 :set expandtab
+
+" Close current buffer and switch to the previous one
+nnoremap <C-c> :bd\|bp #<CR>
