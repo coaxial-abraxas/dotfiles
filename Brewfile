@@ -56,6 +56,7 @@ cask install iterm2
 cask install jumpcut
 cask install lastpass
 cask install limechat
+cask install macvim
 cask install sublime-text3
 cask install telegram
 cask install vlc
