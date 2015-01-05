@@ -1,5 +1,3 @@
-# Use brew binaries before system binaries
-export PATH='/usr/local/bin:$PATH'
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin";
