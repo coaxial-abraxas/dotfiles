@@ -54,7 +54,7 @@ cask install gfxcardstatus
 cask install google-chrome
 cask install iterm2
 cask install jumpcut
-cask install lastpass-universal
+cask install lastpass
 cask install limechat
 cask install sublime-text3
 cask install telegram
