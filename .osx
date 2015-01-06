@@ -190,7 +190,7 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 ##############################################
 
 # Do not prompt for test-release updates
-defaults write come.googlecode.iterm2 CheckTestRelease -bool false
+defaults write com.googlecode.iterm2 CheckTestRelease -bool false
 
 
 ##############################################
