@@ -129,4 +129,4 @@ set wildmenu
 nnoremap <C-c> :bd\|bp #<CR>
 
 " Mark the 80 chars line limit
-set cc=80
+set cc=81
