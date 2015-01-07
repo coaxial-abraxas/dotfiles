@@ -116,3 +116,6 @@ function bash_prompt {
 }
 
 bash_prompt
+
+# Useful aliases
+alias ll='ls -la'
