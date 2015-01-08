@@ -126,9 +126,6 @@ endif
 " Count lines
 :set nu
 
-" Display relative line numbers
-:set relativenumber
-
 " Turn relative numbering on/off with Ctrl-t
 function! TRelative()
 	set relativenumber!
