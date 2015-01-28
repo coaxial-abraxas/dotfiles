@@ -13,8 +13,9 @@ unset file
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# Load nvm
-source /usr/local/opt/nvm/nvm.sh
+# nvm
+export NVM_DIR="~/.nvm"
+source $(brew --prefix nvm)/nvm.sh
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
