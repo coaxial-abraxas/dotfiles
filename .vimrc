@@ -151,5 +151,9 @@ set wildmenu
 " Close current buffer and switch to the previous one
 nnoremap <C-c> :bd\|bp #<CR>
 
-" Mark the 80 chars line limit
-set cc=81
+" Mark the 120 chars line limit
+set cc=121
+
+" Enable visual bell and disable audible bell
+set vb
+set noeb
