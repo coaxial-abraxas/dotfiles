@@ -125,3 +125,13 @@ alias ll='ls -la'
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
+
+# Save history as we enter commands instead of waiting to close the terminal
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# Storage is cheap so lets keep a large history
+HISTSIZE=50000
+HISTFILESIZE=500000
+
+# Disable terminal freeze so Ctrl-s works when searching the history
+stty -ixon
