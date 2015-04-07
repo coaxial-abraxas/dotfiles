@@ -34,3 +34,11 @@ Temporary Items
 *~
 *.swp
 /tmp
+# For developing the adapters
+dev.js
+# Where I usually include notes
+scratchpad
+# Where secrets are saved
+secrets(?!\.example).*
+# VIM plugins folder
+.vim
