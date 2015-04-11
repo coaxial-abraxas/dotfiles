@@ -152,7 +152,7 @@ set wildmenu
 nnoremap <C-c> :bd\|bp #<CR>
 
 " Mark the 120 chars line limit
-set cc=121
+set cc=120
 
 " Enable visual bell and disable audible bell
 set vb
