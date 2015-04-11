@@ -32,7 +32,6 @@ Temporary Items
 
 # Random files
 *~
-*.swp
 /tmp
 # For developing the adapters
 dev.js
@@ -42,3 +41,9 @@ scratchpad
 secrets(?!\.example).*
 # VIM plugins folder
 .vim
+# VIM files
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
