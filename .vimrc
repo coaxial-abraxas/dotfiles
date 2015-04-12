@@ -161,3 +161,6 @@ set cc=120
 " Enable visual bell and disable audible bell
 set vb
 set noeb
+
+" Disable auto-folding in markdown files
+let g:vim_markdown_folding_disabled=1
