@@ -5,7 +5,7 @@
     excludefiles = ~/.gitignore_global
     excludesfile = ~/.gitignore_global
     excludesfiles = ~/.gitignore_global
-  editor = /usr/local/bin/vim
+    editor = $(which vim)
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
     path = 
@@ -19,6 +19,6 @@
     cm = commit -m
     cam = commit -am
     s = status
-    l = log --oneline --decorate
+    l = log --oneline --decorate --first-parent
 [push]
     default = simple
