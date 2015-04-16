@@ -100,6 +100,8 @@ if has("autocmd")
 
   " For all text files set 'textwidth' to 118 characters.
   autocmd FileType text setlocal textwidth=118
+  " And for any other file as well
+  set textwidth=118
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
