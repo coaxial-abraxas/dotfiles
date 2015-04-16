@@ -27,6 +27,7 @@ tap telemachus/homebrew-desc
 
 # Install the essentials
 install git
+install hub
 install tree
 install wget --enable-iri
 install vim

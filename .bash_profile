@@ -120,6 +120,7 @@ bash_prompt
 
 # Useful aliases
 alias ll='ls -la'
+eval "$(hub alias -s)"
 
 # boot2docker
 export DOCKER_HOST=tcp://192.168.59.103:2376
