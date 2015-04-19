@@ -166,3 +166,6 @@ set noeb
 
 " Disable auto-folding in markdown files
 let g:vim_markdown_folding_disabled=1
+
+" Use dark background color schemes
+set bg=dark
