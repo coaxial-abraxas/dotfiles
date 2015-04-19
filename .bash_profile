@@ -123,7 +123,11 @@ function bash_prompt {
 bash_prompt
 
 # Useful aliases
-alias ll='ls -la'
+if [[ $OSTYPE =~ "linux" ]]; then
+  alias ll='ls -la --color=auto'
+else
+  alias ll='ls -laG'
+fi
 eval "$(hub alias -s)"
 
 # boot2docker
