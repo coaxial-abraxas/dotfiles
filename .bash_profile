@@ -1,6 +1,8 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
-export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin";
+if [[ $OSTYPE =~ "darwin" ]]; then
+  export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin";
+fi
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -15,7 +17,9 @@ unset file
 
 # nvm
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+if [[ $OSTYPE =~ "darwin" ]]; then
+  source $(brew --prefix nvm)/nvm.sh
+fi
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
