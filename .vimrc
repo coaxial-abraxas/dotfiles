@@ -21,8 +21,6 @@ Plugin 'plasticboy/vim-markdown'
 " D (as in DTrace) syntax highlighting
 Plugin 'JesseKPhillips/d.vim'
 
-" Remove comment on new line with double <Enter>
-Plugin 'Osse/double-tap'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
