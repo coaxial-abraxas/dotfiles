@@ -21,6 +21,8 @@ Plugin 'plasticboy/vim-markdown'
 " D (as in DTrace) syntax highlighting
 Plugin 'JesseKPhillips/d.vim'
 
+" Easier to view undo tree
+Plugin 'sjl/gundo.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
