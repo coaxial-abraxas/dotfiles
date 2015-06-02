@@ -24,6 +24,9 @@ Plugin 'JesseKPhillips/d.vim'
 " Easier to view undo tree
 Plugin 'sjl/gundo.vim'
 
+" Dracula colour theme
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
