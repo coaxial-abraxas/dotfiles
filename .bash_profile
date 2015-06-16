@@ -1,8 +1,9 @@
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH";
+export PATH="/usr/local/sbin:/usr/local/bin:$HOME/bin:$PATH";
 if [[ $OSTYPE =~ "darwin" ]]; then
   export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin";
 fi
+source ~/.profile
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -11,9 +12,6 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # nvm
 export NVM_DIR=~/.nvm
@@ -131,6 +129,8 @@ fi
 eval "$(hub alias -s)"
 
 alias watch='watch --color'
+
+alias now='date "+%Y%m%d_%H%M%S"'
 
 # boot2docker
 export DOCKER_HOST=tcp://192.168.59.103:2376
