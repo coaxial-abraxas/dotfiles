@@ -40,6 +40,7 @@ install nvm
 install openssl
 install wget
 install tree
+install android-platform-tools
 
 # Install cask
 tap caskroom/cask
