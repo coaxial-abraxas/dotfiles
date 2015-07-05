@@ -59,6 +59,7 @@ cask install jumpcut
 cask install lastpass
 cask install limechat
 cask install macvim
+cask install postbox
 cask install sublime-text3
 cask install telegram
 cask install vlc
