@@ -181,3 +181,9 @@ let g:vim_markdown_folding_disabled=1
 
 " Use dark background color schemes
 set bg=dark
+
+" Crontab workaround as per http://drawohara.com/post/6344279/crontab-temp-file-must-be-edited-in-place
+if $VIM_CRONTAB == "true"
+  set nobackup
+  set nowritebackup
+endif

@@ -149,3 +149,7 @@ stty -ixon
 
 # Set the default editor to be vim
 export EDITOR=`which vim`
+
+# workaround to use vim as the crontab editor
+# (http://drawohara.com/post/6344279/crontab-temp-file-must-be-edited-in-place)
+alias crontab="VIM_CRONTAB=true crontab"
