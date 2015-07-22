@@ -146,3 +146,6 @@ HISTFILESIZE=500000
 
 # Disable terminal freeze so Ctrl-s works when searching the history
 stty -ixon
+
+# Set the default editor to be vim
+export EDITOR=`which vim`
