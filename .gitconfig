@@ -21,5 +21,6 @@
   s = status
   l = log --oneline --decorate --first-parent
   adall = add . --all
+  edit = "!vim `git ls-files -m` -p"
 [push]
   default = simple
