@@ -5,5 +5,5 @@ colorscheme dracula
 set noballooneval
 
 " Override the default tiny window
-set lines=56 columns=124
+set lines=56 columns=130
 
