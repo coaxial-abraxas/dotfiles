@@ -132,6 +132,8 @@ alias watch='watch --color'
 
 alias now='date "+%Y%m%d_%H%M%S"'
 
+alias fig='docker-compose'
+
 # Set env vars for docker
 eval "$(docker-machine env default)"
 
