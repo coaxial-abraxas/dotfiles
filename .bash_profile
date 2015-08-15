@@ -132,10 +132,8 @@ alias watch='watch --color'
 
 alias now='date "+%Y%m%d_%H%M%S"'
 
-# boot2docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+# Set env vars for docker
+eval "$(docker-machine env default)"
 
 # Save history as we enter commands instead of waiting to close the terminal
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
