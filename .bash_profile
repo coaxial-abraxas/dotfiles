@@ -153,3 +153,5 @@ export EDITOR=`which vim`
 # workaround to use vim as the crontab editor
 # (http://drawohara.com/post/6344279/crontab-temp-file-must-be-edited-in-place)
 alias crontab="VIM_CRONTAB=true crontab"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
