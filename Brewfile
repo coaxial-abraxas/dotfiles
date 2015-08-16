@@ -31,10 +31,8 @@ install hub
 install tree
 install wget --enable-iri
 install vim
+install macvim
 install ssh-copy-id
-install boot2docker
-install docker
-install fig
 install mobile-shell
 install nvm 
 install openssl
@@ -50,6 +48,7 @@ install brew-cask
 # And my favourite apps
 cask install airmail-beta
 cask install alfred
+cask install dockertoolbox
 cask install caffeine
 cask install flux
 cask install gfxcardstatus
@@ -58,7 +57,6 @@ cask install iterm2
 cask install jumpcut
 cask install lastpass
 cask install limechat
-cask install macvim
 cask install postbox
 cask install sublime-text3
 cask install telegram
