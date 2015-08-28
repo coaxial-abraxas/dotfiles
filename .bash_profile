@@ -134,6 +134,8 @@ alias now='date "+%Y%m%d_%H%M%S"'
 
 alias fig='docker-compose'
 
+alias v='vagrant'
+
 # Set env vars for docker
 eval "$(docker-machine env default)"
 
