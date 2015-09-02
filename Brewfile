@@ -39,6 +39,7 @@ install openssl
 install wget
 install tree
 install android-platform-tools
+install tmux
 
 # Install cask
 tap caskroom/cask
