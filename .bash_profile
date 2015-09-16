@@ -136,6 +136,9 @@ alias fig='docker-compose'
 
 alias v='vagrant'
 
+# Put color in tree
+alias tree='tree -C'
+
 # Set env vars for docker
 eval "$(docker-machine env default)"
 
