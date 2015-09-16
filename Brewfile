@@ -69,6 +69,7 @@ cask install spotify
 cask install xquartz
 cask install vagrant
 cask install virtualbox
+cask install mac2imgur
 
 # Add casks to Alfred
 cask alfred link
