@@ -39,6 +39,7 @@ servers = (
     port = "21695";
     use_ssl = "yes";
     ssl_verify = "no";
+    autoconnect = "yes";
   }
 );
 
@@ -382,6 +383,13 @@ statusbar = {
       items = {
         barstart = { priority = "100"; };
         awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_1 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
     };
