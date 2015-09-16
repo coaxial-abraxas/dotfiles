@@ -40,6 +40,7 @@ install wget
 install tree
 install android-platform-tools
 install tmux
+install mackup
 
 # Install cask
 tap caskroom/cask
@@ -70,6 +71,9 @@ cask install xquartz
 cask install vagrant
 cask install virtualbox
 cask install mac2imgur
+cask install spectacle
+cask install imageoptim
+cask install google-drive
 
 # Add casks to Alfred
 cask alfred link
