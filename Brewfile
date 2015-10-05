@@ -41,6 +41,7 @@ install tree
 install android-platform-tools
 install tmux
 install mackup
+install webkit2png
 
 # Install cask
 tap caskroom/cask
