@@ -36,7 +36,7 @@ servers = (
   {
     address = "tardis.it.cx";
     chatnet = "znc";
-    port = "21695";
+    port = "21696";
     use_ssl = "yes";
     ssl_verify = "no";
     autoconnect = "yes";
