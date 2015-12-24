@@ -79,6 +79,9 @@ cask install google-drive
 # Add casks to Alfred
 cask alfred link
 
+# Create symlinks in ~/Applications
+linkapps
+
 # Remove outdated versions
 cask cleanup
 cleanup
