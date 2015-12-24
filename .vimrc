@@ -33,6 +33,15 @@ Plugin 'slim-template/vim-slim'
 " LaTeX editing
 Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
 
+" Text snippets àla TextMate (required for vim-es6)
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+" ES6/ES2015 Syntax highlighter
+Plugin 'isRuslan/vim-es6'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
