@@ -31,7 +31,7 @@ install hub
 install tree
 install wget --enable-iri
 install vim
-install macvim
+install macvim --with-override-system-vim
 install ssh-copy-id
 install mobile-shell
 install nvm 
