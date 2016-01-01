@@ -42,6 +42,9 @@ Plugin 'honza/vim-snippets'
 " ES6/ES2015 Syntax highlighter
 Plugin 'isRuslan/vim-es6'
 
+" Rename open file
+Plugin 'danro/rename.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
