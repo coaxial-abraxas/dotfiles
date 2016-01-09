@@ -14,9 +14,11 @@ done
 unset file
 
 # nvm
-export NVM_DIR=~/.nvm
-if [[ $OSTYPE =~ "darwin" ]]; then
-  source $(brew --prefix nvm)/nvm.sh
+if command -v nvm 2>/dev/null; then # checks if the nvm command exists
+  export NVM_DIR=~/.nvm
+  if [[ $OSTYPE =~ "darwin" ]]; then
+    source $(brew --prefix nvm)/nvm.sh
+  fi
 fi
 
 # Case-insensitive globbing (used in pathname expansion)
@@ -139,8 +141,10 @@ alias v='vagrant'
 # Put color in tree
 alias tree='tree -C'
 
-# Set env vars for docker
-eval "$(docker-machine env default)"
+# Set env vars for docker if docker-machine is a valid command
+if command -v docker-machine 2>/dev/null; then
+  eval "$(docker-machine env default)"
+fi
 
 # Save history as we enter commands instead of waiting to close the terminal
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
