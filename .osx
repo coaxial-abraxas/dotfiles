@@ -2,6 +2,9 @@
 
 # Inspired from https://github.com/herrbischoff/awesome-osx-command-line/blob/master/launchagents.md (in parts)
 
+printf "Will now configure OS X and apps."
+printf "This script needs to run as an admin user"
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -241,12 +244,10 @@ defaults write com.apple.ActivityMonitor UpdatePeriod -int 0
 # Show attachments as icons
 defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 
+
 ##############################################
-#             Kill affected apps             #
+#                 Post setup                 #
 ##############################################
 
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-    "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
-    "Terminal" "Transmission" "Twitter" "iCal"; do
-    killall "${app}" > /dev/null 2>&1
-done
+printf "Setup script done running. Changes will take effect after restart.\n"
+printf "See ./checklist.md for the next steps.\n"
