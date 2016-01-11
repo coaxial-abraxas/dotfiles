@@ -190,7 +190,9 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 #                   iTerm2                   #
 ##############################################
 
-# Use a custom prefs file in iTerm's settings and point it to ./com.googlecode.iterm2.plist
+# Use a custom prefs file
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles"
 
 
 ##############################################
