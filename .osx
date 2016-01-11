@@ -2,6 +2,12 @@
 
 # Inspired from https://github.com/herrbischoff/awesome-osx-command-line/blob/master/launchagents.md (in parts)
 
+# Do not run script if not root
+if [[ $EUID -ne 0 ]]; then
+   printf "This script must be run as an administrator\n" 1>&2
+   exit 1
+fi
+
 printf "Will now configure OS X and apps.\n"
 
 ##############################################
