@@ -92,8 +92,13 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>414 144 924 485 0 0 1440 877 </string>
+	<string>320 1154 924 485 -480 900 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>-478 906 1915 1166 -480 900 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -643,7 +648,7 @@
 			<key>Log Directory</key>
 			<string></string>
 			<key>Minimum Contrast</key>
-			<real>0.0</real>
+			<real>0.23583333194255829</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -1368,7 +1373,7 @@
 			<key>Log Directory</key>
 			<string></string>
 			<key>Minimum Contrast</key>
-			<real>0.0</real>
+			<real>0.23648436367511749</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
