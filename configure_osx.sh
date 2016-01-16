@@ -1,33 +1,18 @@
 #!/usr/bin/env bash
 
-# Ask for the administrator password upfront
-sudo -v
+# Inspired from https://github.com/herrbischoff/awesome-osx-command-line/blob/master/launchagents.md (in parts)
 
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+# Do not run script if not root
+if [[ $EUID -ne 0 ]]; then
+   printf "This script must be run as an administrator\n" 1>&2
+   exit 1
+fi
+
+printf "Will now configure OS X and apps.\n"
 
 ##############################################
 #                   UI/UX                    #
 ##############################################
-
-# Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "coaxial-machine"
-sudo scutil --set HostName "coaxial-machine"
-sudo scutil --set LocalHostName "coaxial-machine"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "coaxial-book"
-
-# Menu bar: hide the Time Machine, Volume, User, and Bluetooth icons
-for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-    defaults write "${domain}" dontAutoLoad -array \
-        "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-        "/System/Library/CoreServices/Menu Extras/Volume.menu" \
-        "/System/Library/CoreServices/Menu Extras/User.menu"
-done
-defaults write com.apple.systemuiserver menuExtras -array \
-    "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-    "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-    "/System/Library/CoreServices/Menu Extras/Battery.menu" \
-    "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
@@ -35,12 +20,12 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
+# Expand print panel
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true && \
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
 # Disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
-
-# Disable OS X Gatekeeper
-sudo spctl --master-disable
-sudo defaults write /var/db/SystemPolicy-prefs.plist enabled -string no
 
 # Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
@@ -70,10 +55,7 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # Disable “natural” (Lion-style) scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
-# Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
-# Use scroll gesture with the Ctrl (^) modifier key to zoom
+# Use scroll gesture with the Cmd modifier key to zoom
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 defaults write com.apple.universalaccess closeViewScrollWheelModifiersInt -int 1048576
 # Follow the keyboard focus while zoomed in
@@ -85,15 +67,21 @@ defaults write NSGlobalDomain AppleLocale -string "en_CA"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
+# 24 hours clock
+defaults write NSGlobalDomain AppleICUForce24HourTime -bool true
+
+# Flash time separator
+defaults write com.apple.menuextra.clock FlashDateSeparators -bool true
+
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Faster KeyRepeat
 defaults write NSGlobalDomain KeyRepeat -int 0
-defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Disable long press for accentuated chars
-defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 ##############################################
 #                   Screen                   #
@@ -128,6 +116,9 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
+# And on USB volumes
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
 # Disable disk image verification
 defaults write com.apple.frameworks.diskimages skip-verify -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
@@ -147,6 +138,15 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
+
+# Enable AirDrop over Ethernet and for unsupported Macs
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
+# Dark Finder menu bar
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
+# Disable opening the Photo app on plugging a camera (this is not Windows...)
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 
 ##############################################
@@ -171,6 +171,7 @@ defaults write com.apple.dock autohide-delay -float 0
 # 10: Put display to sleep
 # 11: Launchpad
 # 12: Notification Center
+#
 # Top left screen corner → Desktop
 defaults write com.apple.dock wvous-tl-corner -int 4
 defaults write com.apple.dock wvous-tl-modifier -int 0
@@ -189,8 +190,30 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 #                   iTerm2                   #
 ##############################################
 
-# Do not prompt for test-release updates
-defaults write com.googlecode.iterm2 CheckTestRelease -bool false
+# Use a custom prefs file
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles"
+
+
+##############################################
+#             Security & Privacy             #
+##############################################
+
+# Enable FileVault
+sudo fdesetup enable
+
+# Allow Mac App Store and signed apps
+spctl --enable --label "Developer ID"
+
+# Destroy FileVault keys on standby
+pmset destroyfvkeyonstandby 1
+
+# Enable firewall, let signed apps through
+/usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
+defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+
+# Ask for password after 5 seconds of screen saver
+defaults -currentHost write com.apple.screensaver askForPasswordDelay -int 5
 
 
 ##############################################
@@ -216,32 +239,16 @@ defaults write com.apple.ActivityMonitor UpdatePeriod -int 0
 
 
 ##############################################
-#                 Sublime Text               #
+#                   Mail                     #
 ##############################################
 
-# Install Sublime Text settings
-cp -r init/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+# Show attachments as icons
+defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 
 
 ##############################################
-#                   LimeChat                 #
+#                 Post setup                 #
 ##############################################
 
-# What to do when pasting lots of text
-defaults write net.limechat.LimeChat Preferences.General.paste_command -string "privmsg"
-
-# Default format for gists
-defaults write net.limechat.LimeChat Preferences.General.paste_syntax -string "ruby"
-
-# Hide join and leave messages
-defaults write net.limechat.LimeChat Preferences.General.show_join_leave -bool false
-
-##############################################
-#             Kill affected apps             #
-##############################################
-
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-    "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
-    "Terminal" "Transmission" "Twitter" "iCal"; do
-    killall "${app}" > /dev/null 2>&1
-done
+printf "Setup script done running. Changes will take effect after restart.\n"
+printf "See ./checklist.md for the next steps.\n"
