@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+printf 'Updating submodules...\n'
+./lib/scripts/update_submodules.sh
+
 printf 'Installing fonts...\n'
 ./lib/scripts/dl_fonts.sh
 
