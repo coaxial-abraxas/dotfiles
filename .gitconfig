@@ -2,7 +2,6 @@
   excludefiles = ~/.gitignore_global
   excludesfile = ~/.gitignore_global
   excludesfiles = ~/.gitignore_global
-  editor = $(which vim)
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
