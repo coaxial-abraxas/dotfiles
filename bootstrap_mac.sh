@@ -8,3 +8,6 @@ printf 'Installing Xcode...\n'
 
 printf 'Brewing apps...\n'
 ./lib/scripts/homebrew.sh
+
+printf 'Linking dotfiles...\n'
+./lib/scripts/symlink_dotfiles.sh
