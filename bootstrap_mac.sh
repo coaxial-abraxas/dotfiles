@@ -5,3 +5,6 @@ printf 'Installing fonts...\n'
 
 printf 'Installing Xcode...\n'
 ./lib/scripts/xcode_install.sh
+
+printf 'Brewing apps...\n'
+./lib/scripts/homebrew.sh
