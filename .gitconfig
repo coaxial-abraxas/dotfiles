@@ -1,6 +1,3 @@
-[user]
-  name = "Pierre-Yves Poujade"
-  email = py@poujade.org
 [core]
   excludefiles = ~/.gitignore_global
   excludesfile = ~/.gitignore_global
@@ -24,3 +21,5 @@
   edit = "!vim `git ls-files -m` -p"
 [push]
   default = simple
+[include]
+  path = ~/.gitconfig_local
