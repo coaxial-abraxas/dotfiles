@@ -14,3 +14,6 @@ printf 'Brewing apps...\n'
 
 printf 'Linking dotfiles...\n'
 ./lib/scripts/symlink_dotfiles.sh
+
+printf 'Installing Vundle...\n'
+./lib/scripts/vundle.sh
