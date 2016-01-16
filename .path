@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+export PATH="/usr/local/sbin:/usr/local/bin:$HOME/bin:$PATH";
+if [[ $OSTYPE =~ "darwin" ]]; then
+  export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin";
+fi

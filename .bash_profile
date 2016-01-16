@@ -1,8 +1,3 @@
-# Add `~/bin` to the `$PATH`
-export PATH="/usr/local/sbin:/usr/local/bin:$HOME/bin:$PATH";
-if [[ $OSTYPE =~ "darwin" ]]; then
-  export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin";
-fi
 source ~/.profile
 
 # Load the shell dotfiles, and then some:
