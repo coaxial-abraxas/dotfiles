@@ -39,11 +39,6 @@ brew 'android-platform-tools'
 brew 'tmux'
 brew 'webkit2png'
 
-# Install cask
-tap 'caskroom/cask'
-tap 'caskroom/versions'
-brew 'brew-cask'
-
 # And my favourite apps
 cask 'alfred'
 cask 'caffeine'
