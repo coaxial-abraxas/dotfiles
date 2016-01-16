@@ -141,6 +141,8 @@ alias v='vagrant'
 # Put color in tree
 alias tree='tree -C'
 
+alias pwgen='pwgen -Bsy'
+
 # Set env vars for docker if docker-machine is a valid command
 if command -v docker-machine 2>/dev/null; then
   eval "$(docker-machine env default)"
