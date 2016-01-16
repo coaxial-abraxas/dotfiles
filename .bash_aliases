@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Useful aliases
-if [[ $OSTYPE =~ "linux" ]]; then
+if [[ $OSTYPE =~ linux ]]; then
   alias ll='ls -la --color=auto'
 else
   alias ll='ls -laG'

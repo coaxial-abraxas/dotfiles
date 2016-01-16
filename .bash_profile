@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 source ~/.profile
 
 # Load the shell dotfiles, and then some:
@@ -11,7 +12,8 @@ unset file
 # nvm
 if command -v nvm 2>/dev/null; then # checks if the nvm command exists
   export NVM_DIR=~/.nvm
-  if [[ $OSTYPE =~ "darwin" ]]; then
+  if [[ $OSTYPE =~ darwin ]]; then
+    # shellcheck disable=SC2046
     source $(brew --prefix nvm)/nvm.sh
   fi
 fi
@@ -41,7 +43,9 @@ fi;
 
 # Thanks to @tmoitie, adds more tab completion for bash,
 # also when hitting tab twice it will show a list.
+# shellcheck disable=SC2046
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    # shellcheck disable=SC2046
     . $(brew --prefix)/etc/bash_completion
 fi
 
@@ -61,6 +65,7 @@ HISTFILESIZE=500000
 stty -ixon
 
 # Set the default editor to be vim
-export EDITOR=`which vim`
+# shellcheck disable=SC2155
+export EDITOR=$(which vim)
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
