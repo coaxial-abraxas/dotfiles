@@ -122,27 +122,6 @@ function bash_prompt {
 
 bash_prompt
 
-# Useful aliases
-if [[ $OSTYPE =~ "linux" ]]; then
-  alias ll='ls -la --color=auto'
-else
-  alias ll='ls -laG'
-fi
-eval "$(hub alias -s)"
-
-alias watch='watch --color'
-
-alias now='date "+%Y%m%d_%H%M%S"'
-
-alias fig='docker-compose'
-
-alias v='vagrant'
-
-# Put color in tree
-alias tree='tree -C'
-
-alias pwgen='pwgen -Bsy'
-
 # Set env vars for docker if docker-machine is a valid command
 if command -v docker-machine 2>/dev/null; then
   eval "$(docker-machine env default)"
@@ -160,9 +139,5 @@ stty -ixon
 
 # Set the default editor to be vim
 export EDITOR=`which vim`
-
-# workaround to use vim as the crontab editor
-# (http://drawohara.com/post/6344279/crontab-temp-file-must-be-edited-in-place)
-alias crontab="VIM_CRONTAB=true crontab"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
