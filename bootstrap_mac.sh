@@ -15,5 +15,8 @@ printf 'Brewing apps...\n'
 printf 'Linking dotfiles...\n'
 ./lib/scripts/symlink_dotfiles.sh
 
+printf 'Copying local overrides...\n'
+./lib/scripts/cp_local.sh
+
 printf 'Installing Vundle...\n'
 ./lib/scripts/vundle.sh
