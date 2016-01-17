@@ -1,8 +1,4 @@
-# Add `~/bin` to the `$PATH`
-export PATH="/usr/local/sbin:/usr/local/bin:$HOME/bin:$PATH";
-if [[ $OSTYPE =~ "darwin" ]]; then
-  export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin";
-fi
+#!/usr/bin/env bash
 source ~/.profile
 
 # Load the shell dotfiles, and then some:
@@ -16,7 +12,8 @@ unset file
 # nvm
 if command -v nvm 2>/dev/null; then # checks if the nvm command exists
   export NVM_DIR=~/.nvm
-  if [[ $OSTYPE =~ "darwin" ]]; then
+  if [[ $OSTYPE =~ darwin ]]; then
+    # shellcheck disable=SC2046
     source $(brew --prefix nvm)/nvm.sh
   fi
 fi
@@ -46,102 +43,11 @@ fi;
 
 # Thanks to @tmoitie, adds more tab completion for bash,
 # also when hitting tab twice it will show a list.
+# shellcheck disable=SC2046
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    # shellcheck disable=SC2046
     . $(brew --prefix)/etc/bash_completion
 fi
-
-# A nicer prompt
-# Colours and help from: https://github.com/nicholasjhenry/dotfiles/blob/master/bash/prompt
-# And also http://misc.flogisoft.com/bash/tip_colors_and_formatting
-# And http://mywiki.wooledge.org/BashFAQ/053
-
-function bash_prompt {
-  # Define some colors
-  # regular colors
-  k="\[\e[0;30m\]"    # black
-  r="\[\e[0;31m\]"    # red
-  g="\[\e[0;32m\]"    # green
-  y="\[\e[0;33m\]"    # yellow
-  b="\[\e[0;34m\]"    # blue
-  m="\[\e[0;35m\]"    # magenta
-  c="\[\e[0;36m\]"    # cyan
-  w="\[\e[0;37m\]"    # white
-
-  # emphasized (bolded) colors
-  emk="\[\e[1;30m\]"
-  emr="\[\e[1;31m\]"
-  emg="\[\e[1;32m\]"
-  emy="\[\e[1;33m\]"
-  emb="\[\e[1;34m\]"
-  emm="\[\e[1;35m\]"
-  emc="\[\e[1;36m\]"
-  emw="\[\e[1;37m\]"
-
-  # background colors
-  bgk="\[\e[40m\]"
-  bgr="\[\e[41m\]"
-  bgg="\[\e[42m\]"
-  bgy="\[\e[43m\]"
-  bgb="\[\e[44m\]"
-  bgm="\[\e[45m\]"
-  bgc="\[\e[46m\]"
-  bgw="\[\e[47m\]"
-
-  reset="\[\e[0m\]"
-
-  UC=$w                       # user's color
-  [ $UID -eq "0" ] && UC=$r   # root's color
-
-  # Some helper functions
-  # Heavily inspired from http://blog.deadlypenguin.com/blog/2013/10/24/adding-git-status-to-bash/
-  function _git_prompt() {
-    local git_status="`git status -unormal 2>&1`"
-    if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
-      if [[ "$git_status" =~ nothing\ to\ commit ]]; then
-        local ansi=$emg
-      elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
-        local ansi=$emr
-      else
-        local ansi=$emy
-      fi
-      if [[ "$git_status" =~ On\ branch\ ([^[:space:]]+) ]]; then
-        branch=${BASH_REMATCH[1]}
-        #test "$branch" != master || branch=' '
-      else
-        # Detached HEAD.  (branch=HEAD is a faster alternative.)
-        branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
-        echo HEAD`)"
-      fi
-      echo -n '['$ansi$branch$reset'] '
-    fi
-  }
-
-  export _PS1="$emr\$(~/.rvm/bin/rvm-prompt) $emc\w$reset"
-  export PROMPT_COMMAND='export PS1="\n$reset\[🤖  \]$(_git_prompt)${_PS1}$reset\n$m\u@$emm\h$b \$ $reset";'
-}
-
-bash_prompt
-
-# Useful aliases
-if [[ $OSTYPE =~ "linux" ]]; then
-  alias ll='ls -la --color=auto'
-else
-  alias ll='ls -laG'
-fi
-eval "$(hub alias -s)"
-
-alias watch='watch --color'
-
-alias now='date "+%Y%m%d_%H%M%S"'
-
-alias fig='docker-compose'
-
-alias v='vagrant'
-
-# Put color in tree
-alias tree='tree -C'
-
-alias pwgen='pwgen -Bsy'
 
 # Set env vars for docker if docker-machine is a valid command
 if command -v docker-machine 2>/dev/null; then
@@ -159,10 +65,7 @@ HISTFILESIZE=500000
 stty -ixon
 
 # Set the default editor to be vim
-export EDITOR=`which vim`
-
-# workaround to use vim as the crontab editor
-# (http://drawohara.com/post/6344279/crontab-temp-file-must-be-edited-in-place)
-alias crontab="VIM_CRONTAB=true crontab"
+# shellcheck disable=SC2155
+export EDITOR=$(which vim)
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

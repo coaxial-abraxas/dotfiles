@@ -1,11 +1,7 @@
-[user]
-  name = "Pierre-Yves Poujade"
-  email = py@poujade.org
 [core]
   excludefiles = ~/.gitignore_global
   excludesfile = ~/.gitignore_global
   excludesfiles = ~/.gitignore_global
-  editor = $(which vim)
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
@@ -24,3 +20,5 @@
   edit = "!vim `git ls-files -m` -p"
 [push]
   default = simple
+[include]
+  path = ~/.gitconfig_local
