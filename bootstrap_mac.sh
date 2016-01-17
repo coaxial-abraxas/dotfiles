@@ -20,3 +20,6 @@ printf 'Copying local overrides...\n'
 
 printf 'Installing Vundle...\n'
 ./lib/scripts/vundle.sh
+
+printf 'Installing RVM + Ruby...\n'
+./lib/scripts/rvm_install.sh
