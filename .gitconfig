@@ -18,6 +18,7 @@
   l = log --oneline --decorate --first-parent
   adall = add . --all
   edit = "!vim `git ls-files -m` -p"
+  grep = grep -n
 [push]
   default = simple
 [include]
