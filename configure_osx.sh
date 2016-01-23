@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -o errexit -o nounset -o pipefail
 
 # Inspired from https://github.com/herrbischoff/awesome-osx-command-line/blob/master/launchagents.md (in parts)
 

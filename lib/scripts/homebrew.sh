@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -o errexit -o nounset -o pipefail
 # Prepare and run Homebrew
 
 # Install brew
