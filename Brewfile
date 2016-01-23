@@ -40,6 +40,7 @@ brew 'tmux'
 brew 'webkit2png'
 brew 'entr'
 brew 'pwgen'
+brew 'pv'
 
 # And my favourite apps
 cask 'alfred'
