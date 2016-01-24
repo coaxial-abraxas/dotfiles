@@ -71,8 +71,8 @@ function bash_prompt {
   # Some helper functions
   # Heavily inspired from http://blog.deadlypenguin.com/blog/2013/10/24/adding-git-status-to-bash/
   function _git_prompt() {
-    # shellcheck disable=SC2155
-    local git_status="$(git status -unormal 2>&1)"
+    local git_status
+    git_status="$(git status -unormal 2>&1)"
     if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
       if [[ "$git_status" =~ nothing\ to\ commit ]]; then
         local ansi=$emg
@@ -89,13 +89,21 @@ function bash_prompt {
         branch="($(git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
           echo HEAD))"
       fi
-      # shellcheck disable=SC2086
-      echo -n "["$ansi$branch$reset"] "
+      echo -n "$ansi$branch$reset "
     fi
   }
 
-  export _PS1="$emr\$(~/.rvm/bin/rvm-prompt) $emc\w$reset"
-  export PROMPT_COMMAND='export PS1="\n$reset\[🤖  \]$(_git_prompt)${_PS1}$reset\n$m\u@$emm\h$b \$ $reset";'
+  function _rebase_warning() {
+    if [ -d ./.git/rebase-merge/ ]; then
+      echo -n "$emy""⚠️  Rebasing ⚠️  ""$reset"
+    fi
+  }
+
+  function _ruby_version() {
+    echo "$emr$(~/.rvm/bin/rvm-prompt)$reset"
+  }
+
+  export PROMPT_COMMAND='export PS1="\n$reset\[🤖  \]$(_git_prompt)$(_ruby_version) $emc\w$reset\n$m\u@$emm\h$b \$ $(_rebase_warning)$reset";'
 }
 
 bash_prompt
