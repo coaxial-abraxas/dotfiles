@@ -50,8 +50,11 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # Set env vars for docker if docker-machine is a valid command
-if command -v docker-machine 2>/dev/null; then
-  eval "$(docker-machine env default)"
+if command -v docker-machine &>/dev/null; then
+  # Check if the docker daemon is running (See https://github.com/Coaxial/dotfiles/issues/3)
+  if docker-machine ip default &>/dev/null; then
+    eval "$(docker-machine env default)"
+  fi
 fi
 
 # Save history as we enter commands instead of waiting to close the terminal
