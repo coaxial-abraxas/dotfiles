@@ -30,9 +30,6 @@ Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 " Slim syntax highlighting
 Plugin 'slim-template/vim-slim'
 
-" LaTeX editing
-Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
-
 " Text snippets àla TextMate (required for vim-es6)
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -50,6 +47,12 @@ Plugin 'kchmck/vim-coffee-script'
 
 " Comments!
 Plugin 'tpope/vim-commentary'
+
+" Fuzzy file finder
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" Makes using Rails easier
+Plugin 'tpope/vim-rails'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -131,10 +134,10 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 118 characters.
-  autocmd FileType text setlocal textwidth=118
+  " For all text files set a max line length before wrapping
+  autocmd FileType text setlocal textwidth=79
   " And for any other file as well
-  set textwidth=118
+  set textwidth=79
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -191,7 +194,7 @@ set wildmenu
 nnoremap <C-c> :bd\|bp #<CR>
 
 " Mark the 120 chars line limit
-set cc=120
+set cc=80
 
 " Enable visual bell and disable audible bell
 set vb
