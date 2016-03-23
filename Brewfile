@@ -44,7 +44,7 @@ brew 'pv'
 
 # And my favourite apps
 cask 'alfred'
-cask 'caffeine'
+cask 'keepingyouawake'
 cask 'flux'
 cask 'google-chrome'
 cask 'iterm2'
