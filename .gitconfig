@@ -16,10 +16,11 @@
   cm = commit -m
   cam = commit -am
   s = status
-  l = log --oneline --decorate --first-parent
+  l = log --pretty='%C(auto)%h %<(50,trunc)%s %C(black)%cr,% cN' --first-parent
   adall = add . --all
   edit = "!vim `git ls-files -m` -p"
   grep = grep -n
+  reflog = reflog --pretty='%C(auto)%h %gd: %gs %C(black)%cr'
 [push]
   default = simple
 [include]
