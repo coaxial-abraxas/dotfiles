@@ -21,6 +21,13 @@
   edit = "!vim `git ls-files -m` -p"
   grep = grep -n
   reflog = reflog --pretty='%C(auto)%h %gd: %gs %C(black)%cr'
+  frp = "!f() { \
+    git fetch &&\
+    git rebase origin/master &&\
+    git push --force-with-lease;\
+  }; f"
+  pr = pull-request
+  pf = push --force-with-lease
 [push]
   default = simple
 [include]
