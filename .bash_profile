@@ -10,12 +10,11 @@ done
 unset file
 
 # nvm
-if command -v nvm 2>/dev/null; then # checks if the nvm command exists
+# shellcheck disable=SC2046
+if  [ -f $(brew --prefix nvm)/nvm.sh ] && [[ $OSTYPE =~ darwin ]]; then # checks if the nvm command exists
   export NVM_DIR=~/.nvm
-  if [[ $OSTYPE =~ darwin ]]; then
-    # shellcheck disable=SC2046
-    source $(brew --prefix nvm)/nvm.sh
-  fi
+  # shellcheck disable=SC2046
+  source $(brew --prefix nvm)/nvm.sh
 fi
 
 # Case-insensitive globbing (used in pathname expansion)
