@@ -13,6 +13,7 @@
 [alias]
   co = checkout
   a = add
+  c = commit
   cm = commit -m
   cam = commit -am
   s = status
@@ -23,7 +24,7 @@
   reflog = reflog --pretty='%C(auto)%h %gd: %gs %C(black)%cr'
   frp = "!f() { \
     git fetch &&\
-    git rebase -S origin/master &&\
+    git rebase origin/master &&\
     git push --force-with-lease;\
   }; f"
   pr = pull-request
@@ -34,3 +35,9 @@
   path = ~/.gitconfig_local
 [rebase]
 	autosquash = true
+[commit]
+	gpgsign = true
+[user]
+  # Override key ID in gitconfig_local if required
+  # This key for py@poujade.org
+	signingkey = EE234EE1
