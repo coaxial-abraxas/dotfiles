@@ -31,8 +31,6 @@
   pf = push --force-with-lease
 [push]
   default = simple
-[include]
-  path = ~/.gitconfig_local
 [rebase]
 	autosquash = true
 [commit]
@@ -41,3 +39,5 @@
   # Override key ID in gitconfig_local if required
   # This key for py@poujade.org
 	signingkey = EE234EE1
+[include]
+  path = ~/.gitconfig_local
