@@ -233,3 +233,7 @@ let g:tex_flavor='latex'
 " Open CtrlP with <c-p>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
+" Ignore directories
+let g:ctrlp_custom_ignore = {
+  \ 'dir': 'node_modules'
+  \ }
