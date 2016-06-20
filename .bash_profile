@@ -71,3 +71,6 @@ stty -ixon
 export EDITOR=$(which vim)
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Edit commands in $EDITOR by typing `Esc` at the prompt
+set -o vi
