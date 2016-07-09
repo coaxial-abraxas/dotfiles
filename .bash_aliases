@@ -24,3 +24,6 @@ alias ssh='ssh -o VisualHostKey=yes'
 # workaround to use vim as the crontab editor
 # (http://drawohara.com/post/6344279/crontab-temp-file-must-be-edited-in-place)
 alias crontab="VIM_CRONTAB=true crontab"
+
+# Let's give this dev journal a try
+alias journal='cd ~/code/journal && vim `date +"%Y-%m-%d"`.md'
