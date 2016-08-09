@@ -30,9 +30,9 @@
   pr = pull-request
   pf = push --force-with-lease
   # From https://github.com/git-tips/tips
-  conflicts = git diff --name-only --diff-filter=U
+  conflicts = diff --name-only --diff-filter=U
   clean-branches = "git branch --merged master | grep -v '^\\*\\|  master' | xargs -n 1 git branch -d"
-  inline-diff = git diff --word-diff
+  inline-diff = diff --word-diff
 
 [push]
   default = simple
