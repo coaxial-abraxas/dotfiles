@@ -33,7 +33,7 @@
   conflicts = diff --name-only --diff-filter=U
   clean-branches = "git branch --merged master | grep -v '^\\*\\|  master' | xargs -n 1 git branch -d"
   inline-diff = diff --word-diff
-  tag = tag -a
+  t = tag -a
   pt = push --tags
 
 [push]
