@@ -14,10 +14,6 @@ Plugin 'gmarik/Vundle.vim'
 " git gutters!
 Plugin 'airblade/vim-gitgutter'
 
-" markdown syntax highlighting
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-
 " D (as in DTrace) syntax highlighting
 Plugin 'JesseKPhillips/d.vim'
 
