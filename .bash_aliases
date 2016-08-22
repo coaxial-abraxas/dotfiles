@@ -27,3 +27,7 @@ alias crontab="VIM_CRONTAB=true crontab"
 
 # Let's give this dev journal a try
 alias journal='cd ~/code/journal && vim `date +"%Y-%m-%d"`.md'
+
+# Requires AnyBar and hub
+# Checks the ci-status on GitHub and changes the dot color accordingly
+alias ciw='echo -n "question" | nc -4u -w0 localhost 1738; while true; do if [ "$(hub ci-status)" == "pending" ]; then echo -n "orange" | nc -4u -w0 localhost 1738; elif [ "$(hub ci-status)" == "success" ]; then echo -n "green" | nc -4u -w0 localhost 1738; break; else echo -n "red" | nc -4u -w0 localhost 1738; fi; sleep 5; done &'
