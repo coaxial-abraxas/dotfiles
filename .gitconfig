@@ -48,3 +48,5 @@
 	signingkey = EE234EE1
 [include]
   path = ~/.gitconfig_local
+[cola]
+	fontdiff = Hack,13,-1,5,50,0,0,0,0,0
