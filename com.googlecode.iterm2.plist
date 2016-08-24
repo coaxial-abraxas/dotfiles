@@ -17,7 +17,7 @@
 	<key>AutoHideTmuxClientSession</key>
 	<false/>
 	<key>CheckTestRelease</key>
-	<false/>
+	<true/>
 	<key>ClosingHotkeySwitchesSpaces</key>
 	<true/>
 	<key>CommandSelection</key>
@@ -83,11 +83,9 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Documents</string>
+	<string>~/dotfiles</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 459}</string>
-	<key>NSNavPanelExpandedSizeForSaveMode</key>
-	<string>{712, 521}</string>
+	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -119,15 +117,19 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>414 173 606 456 0 0 1440 877 </string>
+	<string>913 233 924 485 0 0 1920 1057 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>2150 683 620 392 1920 -445 1080 1897 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>1920 -306 606 456 1920 -445 1080 1897 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>1920 -363 796 473 1920 -445 1080 1897 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 850 877 0 0 1440 877 </string>
+	<string>0 0 850 1057 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 8 627 866 0 0 1440 877 </string>
+	<string>1954 224 585 327 1920 -445 1080 1897 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>466 120 585 326 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
-	<string>0 8 1439 866 0 0 1440 877 </string>
+	<string>254 124 865 626 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1585,31 +1587,22 @@
 	</array>
 	<key>NoSyncDisablePromotions</key>
 	<true/>
-	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
-	<true/>
-	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
-	<integer>1</integer>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
-	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
-	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>8DF9E256-25B1-4D86-82AE-9DD69959B5CC</string>
-	<key>NoSyncLastTipTime</key>
-	<real>486486195.58637297</real>
-	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<string>469B8640-46B4-4A8A-9EF0-6D26839EDD49</string>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>486482532.91824001</real>
+	<real>491603801.10996097</real>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>477853432.89636302</real>
+	<real>477769602.62223101</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>479524781.40485603</real>
-	<key>NoSyncTipsToNotShow</key>
-	<array>
-		<string>000</string>
-		<string>0000</string>
-	</array>
+	<real>477769545.875911</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1656,25 +1649,27 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>~/dotfiles</string>
+	<string>/Users/coaxial/dotfiles</string>
 	<key>PromptOnQuit</key>
-	<false/>
+	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
 	<key>RightCommand</key>
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=50</string>
+	<string>https://iterm2.com/appcasts/testing.xml?shard=56</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-06-16T14:05:07Z</date>
+	<date>2016-08-24T02:18:01Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1705,10 +1700,6 @@
 	<true/>
 	<key>UseLionStyleFullscreen</key>
 	<true/>
-	<key>WebKitDefaultFontSize</key>
-	<integer>11</integer>
-	<key>WebKitStandardFont</key>
-	<string>.AppleSystemUIFont</string>
 	<key>WindowNumber</key>
 	<true/>
 	<key>WindowStyle</key>
@@ -1720,6 +1711,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.0</string>
+	<string>3.0.8</string>
 </dict>
 </plist>
