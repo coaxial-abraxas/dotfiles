@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
-source ~/.profile
+# shellcheck disable=SC1090
+source "$HOME/.profile"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,bash_aliases,functions,extra}; do
+for file in $HOME/.{path,bash_prompt,exports,bash_aliases,functions,extra}; do
+  # shellcheck disable=SC1090
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
@@ -14,6 +16,7 @@ unset file
 if  [ -f $(brew --prefix nvm)/nvm.sh ] && [[ $OSTYPE =~ darwin ]]; then # checks if the nvm command exists
   export NVM_DIR=~/.nvm
   # shellcheck disable=SC2046
+  # shellcheck disable=SC1090
   source $(brew --prefix nvm)/nvm.sh
 fi
 
@@ -37,6 +40,7 @@ export LANG="en_US"
 if which brew > /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
     source "$(brew --prefix)/etc/bash_completion";
 elif [ -f /etc/bash_completion ]; then
+    # shellcheck disable=SC1091
     source /etc/bash_completion;
 fi;
 

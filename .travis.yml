@@ -10,9 +10,9 @@ addons:
       - shellcheck
 
 script:
-  - shellcheck bootstrap_mac.sh
-  - shellcheck lib/scripts/*.sh
-  - shellcheck .bash_*
+  - shellcheck -x bootstrap_mac.sh
+  - shellcheck -x lib/scripts/*.sh
+  - shellcheck -x .bash_*
 
 notifications:
   email: false
