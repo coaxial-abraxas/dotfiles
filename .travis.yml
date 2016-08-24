@@ -1,8 +1,13 @@
 language: sh
 
-before_script:
-  - wget "http://ftp.debian.org/debian/pool/main/s/shellcheck/shellcheck_0.3.7-5_amd64.deb"
-  - sudo dpkg -i "shellcheck_0.3.7-5_amd64.deb"
+
+# From https://github.com/koalaman/shellcheck/wiki/TravisCI
+addons:
+  apt:
+    sources:
+      - debian-sid    # Grab shellcheck from the Debian repo (o_O)
+    packages:
+      - shellcheck
 
 script:
   - shellcheck bootstrap_mac.sh
