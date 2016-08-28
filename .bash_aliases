@@ -2,9 +2,9 @@
 
 # Useful aliases
 if [[ $OSTYPE =~ linux ]]; then
-  alias ll='ls -la --color=auto'
+  alias ll='ls -lah --color=auto'
 else
-  alias ll='ls -laG'
+  alias ll='ls -laGh'
 fi
 eval "$(hub alias -s)"
 
