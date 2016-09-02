@@ -78,3 +78,5 @@ export EDITOR=$(which vim)
 
 # Edit commands in $EDITOR by typing `Esc` at the prompt
 set -o vi
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
