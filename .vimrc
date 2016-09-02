@@ -232,3 +232,6 @@ let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*/tmp/*,*/node_modules/*
 " Dont crawl parent directories
 let g:ctrlp_working_path_mode = 'ra'
+
+" Save files with sudo when I forgot to start vim using sudo
+cmap w!! w !sudo tee > /dev/null %
