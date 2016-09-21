@@ -47,6 +47,10 @@ Plugin 'tpope/vim-commentary'
 " Fuzzy file finder
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" React syntax highlighting
+Plugin 'mxw/vim-jsx'
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
