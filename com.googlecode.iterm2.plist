@@ -5,6 +5,8 @@
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
 	<key>AllowClipboardAccess</key>
+	<true/>
+	<key>AlternateMouseScroll</key>
 	<false/>
 	<key>AnimateDimming</key>
 	<false/>
@@ -24,6 +26,8 @@
 	<true/>
 	<key>Control</key>
 	<integer>1</integer>
+	<key>ConvertDosNewlines</key>
+	<true/>
 	<key>CopyLastNewline</key>
 	<false/>
 	<key>CopySelection</key>
@@ -39,6 +43,8 @@
 	<key>DisableFullscreenTransparency</key>
 	<false/>
 	<key>EnableRendezvous</key>
+	<false/>
+	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>FocusFollowsMouse</key>
 	<false/>
@@ -123,11 +129,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>1920 -306 606 456 1920 -445 1080 1897 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1920 -363 796 473 1920 -445 1080 1897 </string>
+	<string>1963 44 1018 447 1920 -445 1080 1897 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 850 1057 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1954 224 585 327 1920 -445 1080 1897 </string>
+	<string>1922 508 1076 940 1920 -445 1080 1897 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>254 124 865 626 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
@@ -1032,9 +1038,9 @@
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
-			<true/>
+			<false/>
 			<key>Blur Radius</key>
-			<real>15</real>
+			<real>10.619320913461538</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1409,6 +1415,8 @@
 			<true/>
 			<key>Normal Font</key>
 			<string>AnonymousPro 12</string>
+			<key>Only The Default BG Color Uses Transparency</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1585,10 +1593,28 @@
 			<string>/Users/pierre</string>
 		</dict>
 	</array>
+	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
+	<true/>
+	<key>NoSyncConfirmShellIntegrationCommand</key>
+	<true/>
+	<key>NoSyncConfirmShellIntegrationCommand_selection</key>
+	<integer>1</integer>
 	<key>NoSyncDisablePromotions</key>
 	<true/>
+	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
+	<integer>0</integer>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
+	<integer>1</integer>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
+	<key>NoSyncInstallUtilitiesPackage</key>
+	<true/>
+	<key>NoSyncInstallUtilitiesPackage_selection</key>
+	<integer>0</integer>
 	<key>NoSyncInstallationId</key>
 	<string>469B8640-46B4-4A8A-9EF0-6D26839EDD49</string>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
@@ -1614,6 +1640,16 @@
 	<key>PassOnControlClick</key>
 	<false/>
 	<key>PasteFromClipboard</key>
+	<false/>
+	<key>PasteSpecialChunkDelay</key>
+	<real>0.01</real>
+	<key>PasteSpecialChunkSize</key>
+	<integer>1024</integer>
+	<key>PasteSpecialRegex</key>
+	<string></string>
+	<key>PasteSpecialSubstitution</key>
+	<string></string>
+	<key>PasteSpecialUseRegexSubstitution</key>
 	<false/>
 	<key>PointerActions</key>
 	<dict>
@@ -1669,7 +1705,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-08-24T02:18:01Z</date>
+	<date>2016-12-02T01:15:21Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1684,6 +1720,8 @@
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
 	<integer>6</integer>
+	<key>TabStyle</key>
+	<integer>1</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>ThreeFingerEmulates</key>
@@ -1695,7 +1733,7 @@
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
-	<false/>
+	<true/>
 	<key>UseCompactLabel</key>
 	<true/>
 	<key>UseLionStyleFullscreen</key>
@@ -1711,6 +1749,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.8</string>
+	<string>3.0.7</string>
 </dict>
 </plist>
