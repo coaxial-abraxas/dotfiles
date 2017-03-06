@@ -201,7 +201,10 @@ defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles
 ##############################################
 
 # Enable FileVault
-sudo fdesetup enable
+if fdesetup status > /dev/null = "FileVault is Off."
+then
+	sudo fdesetup enable
+fi
 
 # Allow Mac App Store and signed apps
 spctl --enable --label "Developer ID"
