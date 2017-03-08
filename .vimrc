@@ -49,6 +49,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 " React syntax highlighting
 Plugin 'mxw/vim-jsx'
+
+" TypeScript syntax highlighting
+Plugin 'leafgarland/typescript-vim'
+
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " All of your Plugins must be added before the following line
