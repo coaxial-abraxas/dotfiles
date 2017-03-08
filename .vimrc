@@ -21,7 +21,7 @@ Plugin 'JesseKPhillips/d.vim'
 Plugin 'sjl/gundo.vim'
 
 " Dracula colour theme
-Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plugin 'crusoexia/vim-dracula'
 
 " Slim syntax highlighting
 Plugin 'slim-template/vim-slim'
@@ -236,3 +236,6 @@ let g:ctrlp_working_path_mode = 'ra'
 
 " Save files with sudo when I forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
+
+" I prefer this colorscheme
+colorscheme dracula
