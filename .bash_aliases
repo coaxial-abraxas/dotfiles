@@ -57,3 +57,6 @@ alias ciw='while true; do
   
   sleep 5;
 done &'
+
+# tree in a node project outputs a lot of cruft
+alias tnode='tree -I node_modules'
