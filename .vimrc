@@ -32,8 +32,8 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
-" ES6/ES2015 Syntax highlighter
-Plugin 'isRuslan/vim-es6'
+" JS highlighting etc
+Plugin 'pangloss/vim-javascript'
 
 " Rename open file
 Plugin 'danro/rename.vim'
