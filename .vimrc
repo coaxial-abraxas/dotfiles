@@ -243,3 +243,6 @@ cmap w!! w !sudo tee > /dev/null %
 
 " I prefer this colorscheme
 colorscheme dracula
+
+" Indent chain method calls (for leafgarland/typescript-vim)
+setlocal indentkeys+=0.
