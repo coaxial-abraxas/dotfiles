@@ -32,8 +32,8 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
-" ES6/ES2015 Syntax highlighter
-Plugin 'isRuslan/vim-es6'
+" JS highlighting etc
+Plugin 'pangloss/vim-javascript'
 
 " Rename open file
 Plugin 'danro/rename.vim'
@@ -49,6 +49,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 " React syntax highlighting
 Plugin 'mxw/vim-jsx'
+
+" TypeScript syntax highlighting
+Plugin 'leafgarland/typescript-vim'
+
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " All of your Plugins must be added before the following line
@@ -239,3 +243,6 @@ cmap w!! w !sudo tee > /dev/null %
 
 " I prefer this colorscheme
 colorscheme dracula
+
+" Indent chain method calls (for leafgarland/typescript-vim)
+setlocal indentkeys+=0.
