@@ -39,17 +39,17 @@
 [push]
   default = simple
 [rebase]
-	autosquash = true
+  autosquash = true
 [commit]
-	gpgsign = true
+  gpgsign = true
 [user]
   # Override key ID in gitconfig_local if required
   # This key for py@poujade.org
-	signingkey = EE234EE1
+  signingkey = EE234EE1
 [include]
   path = ~/.gitconfig_local
 [cola]
-	fontdiff = Hack,13,-1,5,50,0,0,0,0,0
+  fontdiff = Hack,13,-1,5,50,0,0,0,0,0
 [color "diff"]
-	old = red strike
-	new = green italic
+  old = red strike
+  new = green italic
