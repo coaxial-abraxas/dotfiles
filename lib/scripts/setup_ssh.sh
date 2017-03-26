@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -o errexit -o nounset -o pipefail
+
 key_file="$HOME/.ssh/id_rsa"
 
 if [ ! -f "$key_file" ]
