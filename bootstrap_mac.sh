@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+printf 'Setting up SSH key...\n'
+./lib/scripts/setup_ssh.sh
+
 printf 'Updating submodules...\n'
 ./lib/scripts/update_submodules.sh
 
