@@ -1,5 +1,2 @@
 # Customize this file for per machine settings
 # Anything set here will override .gitconfig
-[user]
-  name = "Coaxial"
-  email = "py@poujade.org"
