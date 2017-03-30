@@ -3,6 +3,10 @@
 printf 'Setting up SSH key...\n'
 ./lib/scripts/setup_ssh.sh
 
+printf 'Configuring git...\n'
+./lib/scripts/setup_git.sh
+./lib/scripts/change_repo_origin.sh
+
 printf 'Updating submodules...\n'
 ./lib/scripts/update_submodules.sh
 
