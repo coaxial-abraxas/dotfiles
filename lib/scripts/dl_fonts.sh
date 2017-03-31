@@ -3,9 +3,9 @@ set -o errexit -o nounset -o pipefail
 
 os="$1"
 
-if [ $os == "OSX" ]; then
+if [ "$os" == "OSX" ]; then
   fonts_dir="$HOME/Library/Fonts/"
-elif [ $os == "Linux" ]; then
+elif [ "$os" == "Linux" ]; then
   fonts_dir="$HOME/.fonts/"
 fi
 

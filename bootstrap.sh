@@ -8,6 +8,9 @@ function detect_os {
     echo "OSX"
   elif [ "$(uname)" == "Linux" ]; then
     echo "Linux"
+  else
+    echo "Couldn't detect OS or incompatible OS, sorry."
+    exit 1
   fi
 }
 
