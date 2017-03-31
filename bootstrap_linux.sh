@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -o errexit -o nounset -o pipefail
 
 printf 'Setting up SSH key...\n'
 ./lib/scripts/setup_ssh.sh
