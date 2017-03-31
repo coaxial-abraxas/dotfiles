@@ -1,10 +1,6 @@
-dotfiles
-========
+# My dotfiles (OSX & Linux)
 
-My dotfiles
+## Usage
 
-Sleep screen with hotkeys: http://www.tekrevue.com/tip/the-fastest-way-to-lock-or-sleep-your-screen-in-mac-os-x/
-
-Caveat:
-For docker, `brew install openssl && brew link --force openssl`
-For MacVim, install XCode (full app, binaries won't cut it) before installing MacVim.
+1. Clone the repo using https: `git clone https://github.com/Coaxial/dotfiles.git`
+2. Start the process: `cd dotfiles && ./bootstrap.sh`
