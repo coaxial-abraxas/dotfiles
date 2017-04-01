@@ -10,7 +10,10 @@ addons:
       - shellcheck
 
 script:
-  - shellcheck -x bootstrap_mac.sh
+  - bash -n bootstrap*.sh
+  - bash -n lib/scripts/*.sh
+  - bash -n .bash_*
+  - shellcheck -x bootstrap*.sh
   - shellcheck -x lib/scripts/*.sh
   - shellcheck -x .bash_*
 
