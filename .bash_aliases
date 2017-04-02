@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+# ^ Enables ShellCheck
+
 if [[ $OSTYPE =~ linux ]]; then
   alias ll='ls -lah --color=auto'
 else
