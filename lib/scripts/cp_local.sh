@@ -5,7 +5,7 @@ for file in .*_local
 do
   if [ -f "$HOME/$file" ]
   then
-    read -p "$file already exists at $HOME/, overwrite? [Y/n] " overwrite
+    read -r "$file already exists at $HOME/, overwrite? [Y/n] " overwrite
     overwrite=${overwrite:-"y"}
 
     if [[ "$overwrite" != @(y|Y) ]]
