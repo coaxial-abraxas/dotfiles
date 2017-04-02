@@ -1,20 +1,27 @@
 #!/usr/bin/env bash
+# ^ Enables ShellCheck
 
-# Useful aliases
 if [[ $OSTYPE =~ linux ]]; then
   alias ll='ls -lah --color=auto'
 else
   alias ll='ls -laGh'
 fi
-eval "$(hub alias -s)"
+
+if hash hub 2>/dev/null; then
+  eval "$(hub alias -s)"
+fi
 
 alias watch='watch --color'
 
 alias now='date "+%Y%m%d_%H%M%S"'
 
-alias fig='docker-compose'
+if hash docker-compose 2>/dev/null; then
+  alias fig='docker-compose'
+fi
 
-alias v='vagrant'
+if hash vagrant 2>/dev/null; then
+  alias v='vagrant'
+fi
 
 # Put color in tree
 alias tree='tree -C'
@@ -30,6 +37,7 @@ alias journal='cd ~/code/journal && vim `date +"%Y-%m-%d"`.md'
 
 # Requires AnyBar and hub
 # Checks the ci-status on GitHub and changes the dot color accordingly
+# FIXME this is probably a good candidate for a function
 alias ciw='while true; do
   icon="question"
   ci_status="$(hub ci-status)"

@@ -18,7 +18,7 @@ current_os="$(detect_os)"
 
 printf "Yay, a new machine! Let's set it up...\n"
 printf "Detected OS is \"%s\"\n" "$current_os"
-read -p "Continue? [Yn] " continue
+read -r "Continue? [Y/n] " continue
 continue=${continue:-"y"}
 
 if [[ "$continue" != @(y|Y) ]]

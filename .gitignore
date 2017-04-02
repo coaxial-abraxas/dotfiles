@@ -1,2 +1,4 @@
 away.log
 .irssi/config.autosave
+*.*~
+*.swp
