@@ -55,6 +55,8 @@ Plugin 'leafgarland/typescript-vim'
 
 " Status bar
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
