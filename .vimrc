@@ -254,3 +254,6 @@ setlocal indentkeys+=0.
 
 " Always show vim-airline
 set laststatus=2
+
+" CtrlP to show hidden files
+let g:ctrlp_show_hidden = 1
