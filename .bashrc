@@ -65,7 +65,7 @@ function _ssh_hostname_completion {
 function _enable_completion {
   if [ "$_is_bash" ]; then
     # Add tab completion for many Bash commands
-    if which brew > /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+    if hash brew 2>/dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
       # shellcheck disable=SC1090
       source "$(brew --prefix)/etc/bash_completion";
     elif [ -f /etc/bash_completion ]; then
@@ -77,7 +77,7 @@ function _enable_completion {
 
 function _setup_docker_client {
   # Set env vars for docker if docker-machine is a valid command
-  if command -v docker-machine &>/dev/null; then
+  if hash docker-machine 2>/dev/null; then
     # Check if the docker daemon is running (See https://github.com/Coaxial/dotfiles/issues/3)
     if docker-machine ip default &>/dev/null; then
       eval "$(docker-machine env default)"
