@@ -53,6 +53,9 @@ Plugin 'mxw/vim-jsx'
 " TypeScript syntax highlighting
 Plugin 'leafgarland/typescript-vim'
 
+" Status bar
+Plugin 'vim-airline/vim-airline'
+
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " All of your Plugins must be added before the following line
@@ -246,3 +249,6 @@ colorscheme badwolf
 
 " Indent chain method calls (for leafgarland/typescript-vim)
 setlocal indentkeys+=0.
+
+" Always show vim-airline
+set laststatus=2
