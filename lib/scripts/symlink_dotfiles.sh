@@ -3,17 +3,17 @@ set -o errexit -o nounset -o pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../.."
 declare -a dotfiles=(\
+  .bash_aliases \
+  .bash_prompt \
   .bashrc \
   .gemrc \
   .gitconfig \
   .gitignore_global \
   .gvimrc \
   .irssi \
-  .vimrc \
-  .bash_aliases \
-  .bash_profile \
-  .bash_prompt \
   .path\
+  .profile \
+  .vimrc \
 )
 
 for dotfile in "${dotfiles[@]}"
