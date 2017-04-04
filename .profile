@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+# ^ Enable SC
+
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -29,7 +32,7 @@ export LANG="en_US"
 
 # Set the default editor to be vim
 # shellcheck disable=SC2155
-export EDITOR=$(which vim)
+export EDITOR="$(which vim)"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
