@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+# ^ Enable SC
+
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -12,7 +15,8 @@
 if [ -n "$BASH_VERSION" ]; then
   # include .bashrc if it exists
   if [ -f "$HOME/.bashrc" ]; then
-    . "$HOME/.bashrc"
+    # shellcheck source=./.bashrc
+    source "$HOME/.bashrc"
   fi
 fi
 
@@ -23,18 +27,17 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 # PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Prefer US English and use UTF-8
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
+
+# Set the default editor to be vim
+# shellcheck disable=SC2155
+export EDITOR="$(which vim)"
+
+# shellcheck disable=SC1090
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-function _load_nvm {
-  # nvm
-  # shellcheck disable=SC2046
-  if  [ -f "$(brew --prefix nvm)/nvm.sh" ] && [[ "$OSTYPE" =~ "darwin" ]]
-  then
-    export NVM_DIR="$HOME/.nvm"
-    # shellcheck disable=SC2046
-    # shellcheck disable=SC1090
-    source "$(brew --prefix nvm)/nvm.sh"
-  fi
-}
-
-_load_nvm
+export NVM_DIR="$HOME/.nvm"
+# shellcheck disable=SC1090
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # This loads nvm
