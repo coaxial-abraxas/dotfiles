@@ -28,3 +28,6 @@ printf 'Installing Vundle...\n'
 
 printf 'Installing RVM + Ruby...\n'
 ./lib/scripts/rvm_install.sh
+
+printf 'Enabling latest bash...\n'
+./lib/scripts/enable_latest_bash.sh
