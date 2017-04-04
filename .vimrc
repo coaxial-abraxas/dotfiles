@@ -168,15 +168,15 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+    \ | wincmd p | diffthis
 endif
 
 " Count lines
-:set nu
+set nu
 
 " Turn relative numbering on/off with Ctrl-t
 function! TRelative()
-	set relativenumber!
+  set relativenumber!
 endfunc
 
 noremap <c-t> :call TRelative()<cr>
@@ -191,10 +191,10 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 set wildmenu
 
 " Set tabs to 2 spaces
-:set tabstop=2
-:set shiftwidth=2
-:set smarttab
-:set expandtab
+set tabstop=2
+set shiftwidth=2
+set smarttab
+set expandtab
 
 " Close current buffer and switch to the previous one
 nnoremap <C-c> :bd\|bp #<CR>
