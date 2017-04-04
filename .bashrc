@@ -1,8 +1,6 @@
 # Expand variables set in .bash_profile to new terminals when only .bashrc is
 # read. cf http://mywiki.wooledge.org/DotFiles
 
-# FIXME some things should go in .profile (LANG etc)
-
 if [ -n "$BASH_VERSION" ]; then
   _is_bash=true
 fi
@@ -39,10 +37,7 @@ function _load_ancilliary_dotfiles {
   declare -a ancilliary_dotfiles=(\
     .bash_aliases \
     .bash_prompt \
-    .exports \
-    .extra \
-    .functions \
-    .path \
+    .path
   )
 
   for file in "${ancilliary_dotfiles[@]}"; do
@@ -126,3 +121,4 @@ for func in ${funcs[@]}; do
 done
 
 unset $funcs
+unset $_is_bash
