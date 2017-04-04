@@ -13,9 +13,13 @@ script:
   - bash -n bootstrap*.sh
   - bash -n lib/scripts/*.sh
   - bash -n .bash_*
+  - bash -n .bashrc
+  - bash -n .profile
   - shellcheck -x bootstrap*.sh
   - shellcheck -x lib/scripts/*.sh
   - shellcheck -x .bash_*
+  - shellcheck -x .bashrc
+  - shellcheck -x .profile
 
 notifications:
   email: false
