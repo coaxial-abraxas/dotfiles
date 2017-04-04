@@ -24,17 +24,3 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-function _load_nvm {
-  # nvm
-  # shellcheck disable=SC2046
-  if  [ -f "$(brew --prefix nvm)/nvm.sh" ] && [[ "$OSTYPE" =~ "darwin" ]]
-  then
-    export NVM_DIR="$HOME/.nvm"
-    # shellcheck disable=SC2046
-    # shellcheck disable=SC1090
-    source "$(brew --prefix nvm)/nvm.sh"
-  fi
-}
-
-_load_nvm
