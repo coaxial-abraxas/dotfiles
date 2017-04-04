@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+# ^ Enable SC
+
 # Expand variables set in .bash_profile to new terminals when only .bashrc is
 # read. cf http://mywiki.wooledge.org/DotFiles
 
