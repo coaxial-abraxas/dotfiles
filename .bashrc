@@ -4,8 +4,6 @@
 # FIXME some things should go in .profile (LANG etc)
 
 if [ -n "$BASH_VERSION" ]; then
-  # this has to be set here, variables declared in .profile aren't inherited
-  # here
   _is_bash=true
 fi
 
