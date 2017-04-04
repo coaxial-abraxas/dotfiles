@@ -23,6 +23,9 @@ function _set_bash_specific_options {
 
     # Autocorrect typos in path names when using `cd`
     shopt -s cdspell
+
+    # Show expanded command before executing it
+    shopt -s histverify
   fi
 }
 
