@@ -23,4 +23,15 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 # PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Prefer US English and use UTF-8
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
+
+# Set the default editor to be vim
+# shellcheck disable=SC2155
+export EDITOR=$(which vim)
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # This loads nvm

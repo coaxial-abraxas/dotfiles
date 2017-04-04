@@ -17,8 +17,18 @@ fi
 # added by travis gem
 [ -f /Users/pierre/.travis/travis.sh ] && source /Users/pierre/.travis/travis.sh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # This loads nvm
+function _set_bash_specific_options {
+  if [ "$_is_bash" ]; then
+    # Case-insensitive globbing (used in pathname expansion)
+    shopt -s nocaseglob
+
+    # Append to the Bash history file, rather than overwriting it
+    shopt -s histappend
+
+    # Autocorrect typos in path names when using `cd`
+    shopt -s cdspell
+  fi
+}
 
 function _load_ancilliary_dotfiles {
   # * ~/.path can be used to extend `$PATH`.
@@ -44,24 +54,6 @@ function _load_ancilliary_dotfiles {
     fi
   done
 }
-
-
-function _set_bash_specific_options {
-  if [ "$_is_bash" ]; then
-    # Case-insensitive globbing (used in pathname expansion)
-    shopt -s nocaseglob
-
-    # Append to the Bash history file, rather than overwriting it
-    shopt -s histappend
-
-    # Autocorrect typos in path names when using `cd`
-    shopt -s cdspell
-  fi
-}
-
-# Prefer US English and use UTF-8
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US"
 
 function _ssh_hostname_completion {
   # SSH hostnames based on ~/.ssh/config, ignoring wildcards
@@ -104,10 +96,6 @@ function _tweak_history {
 }
 
 function _vim_ftw {
-  # Set the default editor to be vim
-  # shellcheck disable=SC2155
-  export EDITOR=$(which vim)
-
   if [ "$_is_bash" ]; then
     # Edit commands in $EDITOR by typing `Esc` at the prompt
     set -o vi
@@ -117,23 +105,25 @@ function _vim_ftw {
 function _iterm2_features {
   if [ "$_is_bash" ]; then
     # shellcheck disable=SC1090
+    # FIXME use if [ -f ]
     test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
   fi
 }
 
 declare -a funcs=(\
+  _enable_completion \
+  _iterm2_features \
   _load_ancilliary_dotfiles \
   _set_bash_specific_options \
-  _ssh_hostname_completion \
-  _enable_completion \
   _setup_docker_client \
+  _ssh_hostname_completion \
   _tweak_history \
   _vim_ftw \
-  _iterm2_features \
 )
 
 for func in ${funcs[@]}; do
   $func
+  # no need to pollute the namespace with these functions
   unset $func
 done
 
