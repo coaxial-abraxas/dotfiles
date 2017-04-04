@@ -18,7 +18,7 @@ fi
 [ -f /Users/pierre/.travis/travis.sh ] && source /Users/pierre/.travis/travis.sh
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # This loads nvm
 
 function _load_ancilliary_dotfiles {
   # * ~/.path can be used to extend `$PATH`.
