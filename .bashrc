@@ -9,12 +9,14 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # Override with local settings
-if [ -f ~/.bashrc_local ]; then
-  source ~/.bashrc_local
+if [ -f "$HOME/.bashrc_local" ]; then
+  # shellcheck source=./.bashrc_local
+  source "$HOME/.bashrc_local"
 fi
 
 # added by travis gem
-[ -f /Users/pierre/.travis/travis.sh ] && source /Users/pierre/.travis/travis.sh
+# shellcheck disable=SC1090
+[ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
 
 function _set_bash_specific_options {
   if [ "$_is_bash" ]; then
@@ -120,11 +122,11 @@ declare -a funcs=(\
   _vim_ftw \
 )
 
-for func in ${funcs[@]}; do
+for func in "${funcs[@]}"; do
   $func
   # no need to pollute the namespace with these functions
-  unset $func
+  unset "$func"
 done
 
-unset $funcs
-unset $_is_bash
+unset funcs
+unset _is_bash
