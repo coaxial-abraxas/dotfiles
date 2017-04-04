@@ -25,3 +25,6 @@ printf 'Installing Vundle...\n'
 
 printf 'Installing RVM + Ruby...\n'
 ./lib/scripts/rvm_install.sh
+
+printf 'Installing NVM...\n'
+./lib/scripts/install_nvm.sh
