@@ -18,6 +18,8 @@ fi
 # shellcheck disable=SC1090
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 function _set_bash_specific_options {
   if [ "$_is_bash" ]; then
     # Case-insensitive globbing (used in pathname expansion)
