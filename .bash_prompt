@@ -90,7 +90,7 @@ function bash_prompt {
         branch="($(git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
           echo HEAD))"
       fi
-      echo -n "[$ansiᚠ $branch$reset] "
+      echo -n "[${ansi}ᚠ $branch$reset] "
     fi
   }
 
@@ -105,7 +105,7 @@ function bash_prompt {
     ruby_version=$("$HOME/.rvm/bin/rvm-prompt")
 
     if [ ! -z "$ruby_version" ]; then
-      echo "[$emr💎 $ruby_version$reset] "
+      echo "[${emr}💎 $ruby_version$reset] "
     fi
   }
 
@@ -114,7 +114,7 @@ function bash_prompt {
     node_version=$(node -v)
 
     if [ ! -z "$node_version" ]; then
-      echo "[$emg⬢  $node_version$reset] "
+      echo "[${emg}⬢  $node_version$reset] "
     fi
   }
 
