@@ -90,7 +90,7 @@ function bash_prompt {
         branch="($(git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
           echo HEAD))"
       fi
-      echo -n "[$ansi$branch$reset] "
+      echo -n "[$ansiᚠ $branch$reset] "
     fi
   }
 
@@ -101,10 +101,22 @@ function bash_prompt {
   }
 
   function _ruby_version {
-    echo "$emr$(~/.rvm/bin/rvm-prompt)$reset"
+    local ruby_version=$("$HOME/.rvm/bin/rvm-prompt")
+
+    if [ ! -z "$ruby_version" ]; then
+      echo "[$emr💎 $ruby_version$reset] "
+    fi
   }
 
-  export PROMPT_COMMAND='export PS1="\n$reset\[🤖  \]$(_git_prompt)$(_ruby_version) $emc\w$reset\n$m\u@$emm\h$b \$ $(_rebase_warning)$reset";'
+  function _node_version {
+    local node_version=$(node -v)
+
+    if [ ! -z "$node_version" ]; then
+      echo "[$emg⬢  $node_version$reset] "
+    fi
+  }
+
+  export PROMPT_COMMAND='export PS1="\n$reset$(_git_prompt)$(_ruby_version)$(_node_version)$emc\w$reset\n$m\u@$emm\h$b \$ $(_rebase_warning)$reset";'
 }
 
 bash_prompt
