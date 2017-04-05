@@ -101,7 +101,8 @@ function bash_prompt {
   }
 
   function _ruby_version {
-    local ruby_version=$("$HOME/.rvm/bin/rvm-prompt")
+    local ruby_version
+    ruby_version=$("$HOME/.rvm/bin/rvm-prompt")
 
     if [ ! -z "$ruby_version" ]; then
       echo "[$emr💎 $ruby_version$reset] "
@@ -109,7 +110,8 @@ function bash_prompt {
   }
 
   function _node_version {
-    local node_version=$(node -v)
+    local node_version
+    node_version=$(node -v)
 
     if [ ! -z "$node_version" ]; then
       echo "[$emg⬢  $node_version$reset] "
