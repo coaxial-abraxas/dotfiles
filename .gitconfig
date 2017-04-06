@@ -31,7 +31,7 @@
   l = log --pretty='%C(auto)%h %<(50,trunc)%s %C(black)%cr,% cN' --first-parent
   pf = push --force-with-lease # Push Force
   pr = pull-request
-  prune = prune --fetch
+  prune = fetch --prune
   pt = push --tags
   reflog = reflog --pretty='%C(auto)%h %gd: %gs %C(black)%cr'
   s = status
