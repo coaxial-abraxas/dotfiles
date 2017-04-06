@@ -11,30 +11,30 @@
   status = auto
   branch = auto
 [alias]
-  co = checkout
   a = add
-  c = commit
-  cm = commit -m
-  cam = commit -am
-  s = status
-  l = log --pretty='%C(auto)%h %<(50,trunc)%s %C(black)%cr,% cN' --first-parent
   adall = add . --all
-  edit = "!vim `git ls-files -m` -p"
-  grep = grep -n
-  reflog = reflog --pretty='%C(auto)%h %gd: %gs %C(black)%cr'
-  frp = "!f() { \
-    git fetch &&\
-    git rebase origin/master &&\
-    git push --force-with-lease;\
-  }; f"
-  pr = pull-request
-  pf = push --force-with-lease
+  c = commit
+  cam = commit -am
+  clean-branches = "git branch --merged master | grep -v '^\\*\\|  master' | xargs -n 1 git branch -d"
+  cm = commit -m
+  co = checkout
   # From https://github.com/git-tips/tips
   conflicts = diff --name-only --diff-filter=U
-  clean-branches = "git branch --merged master | grep -v '^\\*\\|  master' | xargs -n 1 git branch -d"
+  edit = "!vim `git ls-files -m` -p"
+  frp = "!f() { \
+    git fetch --prune &&\
+    git push --force-with-lease;\
+    git rebase origin/master &&\
+  }; f"
+  grep = grep -n
   inline-diff = diff --word-diff
-  t = tag -a
+  l = log --pretty='%C(auto)%h %<(50,trunc)%s %C(black)%cr,% cN' --first-parent
+  pf = push --force-with-lease
+  pr = pull-request
   pt = push --tags
+  reflog = reflog --pretty='%C(auto)%h %gd: %gs %C(black)%cr'
+  s = status
+  t = tag -a
 
 [push]
   default = simple
