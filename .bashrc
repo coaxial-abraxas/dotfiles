@@ -21,6 +21,13 @@ fi
 # shellcheck disable=SC1090
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+function _tell_fortune {
+  if hash fortune; then
+    printf '\n'
+    fortune -s # short fortunes only
+  fi
+}
+
 function _set_bash_specific_options {
   if [ "$_is_bash" ]; then
     # Case-insensitive globbing (used in pathname expansion)
@@ -121,6 +128,7 @@ declare -a funcs=(\
   _set_bash_specific_options \
   _setup_docker_client \
   _ssh_hostname_completion \
+  _tell_fortune \
   _tweak_history \
   _vim_ftw \
 )
