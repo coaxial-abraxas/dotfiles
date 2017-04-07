@@ -10,7 +10,7 @@ addons:
       - shellcheck
 
 script:
-  - lint_scripts.sh
+  - ./lint_scripts.sh
 
 notifications:
   email: false
