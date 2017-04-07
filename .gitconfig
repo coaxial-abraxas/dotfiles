@@ -23,8 +23,8 @@
   edit = "!vim `git ls-files -m` -p"
   frp = "!f() { \
     git fetch --prune &&\
-    git push --force-with-lease;\
     git rebase origin/master &&\
+    git push --force-with-lease;\
   }; f"
   grep = grep -n
   inline-diff = diff --word-diff
