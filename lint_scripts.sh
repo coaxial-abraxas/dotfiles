@@ -11,7 +11,7 @@ declare -a scripts=(\
 
 for script in "${scripts[@]}"; do
   # ignore vim swap files and artifacts
-  if [[ ! "$script" =~ ~$|sw?$ ]]; then
+  if [[ ! "$script" =~ ~$|sw.?$ ]]; then
     bash -n "$script"
     shellcheck -x "$script"
   fi
