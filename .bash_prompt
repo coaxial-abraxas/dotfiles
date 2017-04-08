@@ -102,10 +102,20 @@ function bash_prompt {
 
   function _ruby_version {
     local ruby_version
+    local ruby_icon
     ruby_version=$("$HOME/.rvm/bin/rvm-prompt")
 
     if [ ! -z "$ruby_version" ]; then
-      echo "[${emr}💎 $ruby_version$reset] "
+      # OSX and iTerm2 can show emojis in the terminal, which have a different
+      # width than on Linux. This workwround inserts an extra blank space for
+      # OSX so the Ruby and the actual version aren't too close one to another.
+      if [ "$(uname)" == "Darwin" ]; then
+        ruby_icon='💎  '
+      else
+        ruby_icon='💎 '
+      fi
+
+      echo "[${emr}$ruby_icon$ruby_version$reset] "
     fi
   }
 
