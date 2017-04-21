@@ -58,6 +58,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 
+" Automatically save folds
+Plugin 'vim-scripts/restore_view.vim'
+
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " All of your Plugins must be added before the following line
