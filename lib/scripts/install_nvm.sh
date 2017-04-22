@@ -5,8 +5,10 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | b
 
 # NVM adds its export to bashrc, but it's already in profile
 git checkout .bashrc
-# Load NVM
-# shellcheck source=./.profile
-source "$HOME/.profile"
+
+# Avoids an unbound variable error within the nvm script
+set +o nounset
+source ~/.nvm/nvm.sh
 
 nvm install node
+set -o nounset
