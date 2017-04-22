@@ -120,11 +120,13 @@ function bash_prompt {
   }
 
   function _node_version {
-    local node_version
-    node_version=$(node -v)
+    if hash node 2>/dev/null; then
+      local node_version
+      node_version=$(node -v)
 
-    if [ ! -z "$node_version" ]; then
-      echo "[${emg}⬢  $node_version$reset] "
+      if [ ! -z "$node_version" ]; then
+        echo "[${emg}⬢  $node_version$reset] "
+      fi
     fi
   }
 
