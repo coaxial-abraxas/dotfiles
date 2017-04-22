@@ -121,10 +121,15 @@ function _iterm2_features {
   fi
 }
 
+function _load_nvm {
+  [ -s "$NVM_DIR/nvm.sh" ] && source "$HVM_HOME/nvm.sh"
+}
+
 declare -a funcs=(\
   _enable_completion \
   _iterm2_features \
   _load_ancilliary_dotfiles \
+  _load_nvm \
   _set_bash_specific_options \
   _setup_docker_client \
   _ssh_hostname_completion \
