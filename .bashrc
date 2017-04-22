@@ -122,7 +122,7 @@ function _iterm2_features {
 }
 
 function _load_nvm {
-  [ -s "$NVM_DIR/nvm.sh" ] && source "$HVM_HOME/nvm.sh"
+  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 }
 
 declare -a funcs=(\
