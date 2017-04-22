@@ -22,7 +22,7 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 function _tell_fortune {
-  if hash fortune; then
+  if hash fortune 2>/dev/null; then
     printf '\n'
     fortune -s # short fortunes only
   fi
