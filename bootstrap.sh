@@ -18,7 +18,7 @@ current_os="$(detect_os)"
 
 printf "Yay, a new machine! Let's set it up...\n"
 printf "Detected OS is \"%s\"\n" "$current_os"
-read -r "Continue? [Y/n] " continue
+read -r -p "Continue? [Y/n] " continue
 continue=${continue:-"y"}
 
 if [[ "$continue" != @(y|Y) ]]
@@ -27,5 +27,5 @@ then
   exit 0
 fi
 
-  printf "Configuring %s..." "$current_os"
-  ./bootstrap_linux.sh
+printf "Configuring %s...\n" "$current_os"
+./bootstrap_linux.sh

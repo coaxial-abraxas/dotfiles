@@ -260,3 +260,6 @@ set laststatus=2
 
 " CtrlP to show hidden files
 let g:ctrlp_show_hidden = 1
+
+" Enable 256 colors in vim
+set t_Co=256

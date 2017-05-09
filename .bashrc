@@ -22,7 +22,7 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 function _tell_fortune {
-  if hash fortune; then
+  if hash fortune 2>/dev/null; then
     printf '\n'
     fortune -s # short fortunes only
   fi
@@ -121,10 +121,16 @@ function _iterm2_features {
   fi
 }
 
+function _load_nvm {
+  # shellcheck disable=SC1090
+  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+}
+
 declare -a funcs=(\
   _enable_completion \
   _iterm2_features \
   _load_ancilliary_dotfiles \
+  _load_nvm \
   _set_bash_specific_options \
   _setup_docker_client \
   _ssh_hostname_completion \
