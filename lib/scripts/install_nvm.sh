@@ -8,6 +8,7 @@ git checkout .bashrc
 
 # Avoids an unbound variable error within the nvm script
 set +o nounset
+# shellcheck disable=SC1090
 source ~/.nvm/nvm.sh
 
 nvm install node

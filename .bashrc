@@ -122,6 +122,7 @@ function _iterm2_features {
 }
 
 function _load_nvm {
+  # shellcheck disable=SC1090
   [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 }
 
