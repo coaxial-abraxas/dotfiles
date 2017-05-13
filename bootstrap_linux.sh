@@ -20,6 +20,9 @@ printf 'Linking dotfiles...\n'
 printf 'Copying local overrides...\n'
 ./lib/scripts/cp_local.sh
 
+printf 'Installing vim...\n'
+./lib/scripts/vim.sh
+
 printf 'Installing Vundle...\n'
 ./lib/scripts/vundle.sh
 
