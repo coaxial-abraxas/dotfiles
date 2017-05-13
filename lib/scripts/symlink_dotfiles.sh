@@ -18,7 +18,7 @@ declare -a dotfiles=(\
 
 for dotfile in "${dotfiles[@]}"
 do
-  if [ -f "$HOME/$dotfile" ]
+  if [ -e "$HOME/$dotfile" ]
   then
     printf "File %s already exist in ~, overwrite? [Y/n] " "$dotfile"
     read -r overwrite
@@ -28,8 +28,9 @@ do
     then
       continue
     fi
+
+    rm -rf "${HOME:?}/$dotfile"
   fi
 
-  rm "$HOME/$dotfile"
   ln -s "$DIR/$dotfile" "$HOME"
 done
