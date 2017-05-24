@@ -68,3 +68,6 @@ done &'
 
 # tree in a node project outputs a lot of cruft
 alias tnode='tree -I node_modules'
+
+# FIXME Linux only, OSX uses pbcopy
+alias cb='xclip -sel clip'
