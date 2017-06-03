@@ -70,4 +70,6 @@ done &'
 alias tnode='tree -I node_modules'
 
 # FIXME Linux only, OSX uses pbcopy
-alias cb='xclip -sel clip'
+if hash xclip 2>/dev/null; then
+  alias cb='xclip -sel clip'
+fi
