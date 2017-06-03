@@ -49,3 +49,8 @@ export EDITOR="$(which vim)"
 export NVM_DIR="$HOME/.nvm"
 # shellcheck disable=SC1090
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # This loads nvm
+
+# set CapsLock to Esc
+if hash setxkbpmap 2>/dev/null; then
+  setxkbmap -option "caps:swapescape"
+fi
