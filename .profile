@@ -54,3 +54,5 @@ export NVM_DIR="$HOME/.nvm"
 if hash setxkbpmap 2>/dev/null; then
   setxkbmap -option "caps:swapescape"
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
