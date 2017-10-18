@@ -34,6 +34,9 @@ Plugin 'honza/vim-snippets'
 
 " JS highlighting etc
 Plugin 'pangloss/vim-javascript'
+" " Enable Flow support
+" Enable Flow support
+let g:javascript_plugin_flow = 1
 
 " Rename open file
 Plugin 'danro/rename.vim'
@@ -49,6 +52,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 " React syntax highlighting
 Plugin 'mxw/vim-jsx'
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " TypeScript syntax highlighting
 Plugin 'leafgarland/typescript-vim'
@@ -64,7 +68,11 @@ Plugin 'vim-scripts/restore_view.vim'
 " Rust extensions
 Plugin 'rust-lang/rust.vim'
 
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" Improve JSON highlighting
+Plugin 'leshill/vim-json'
+
+" Asynchronous linting
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
