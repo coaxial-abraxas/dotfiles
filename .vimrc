@@ -59,6 +59,12 @@ Plugin 'w0rp/ale'
 " Interface with OS X Dash
 Plugin 'rizzatti/dash.vim'
 
+" Session management
+Plugin 'thaerkh/vim-workspace'
+let g:workspace_autosave_always = 1
+" toggle workspace with leader-s
+noremap <leader>s :ToggleWorkspace<CR>
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
