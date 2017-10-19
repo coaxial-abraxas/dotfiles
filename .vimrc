@@ -14,35 +14,16 @@ Plugin 'gmarik/Vundle.vim'
 " git gutters!
 Plugin 'airblade/vim-gitgutter'
 
-" D (as in DTrace) syntax highlighting
-Plugin 'JesseKPhillips/d.vim'
-
-" Easier to view undo tree
-Plugin 'sjl/gundo.vim'
-
 " A dark color theme
 Plugin 'sjl/badwolf'
 
-" Slim syntax highlighting
-Plugin 'slim-template/vim-slim'
-
-" Text snippets àla TextMate (required for vim-es6)
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-
 " JS highlighting etc
 Plugin 'pangloss/vim-javascript'
-" " Enable Flow support
 " Enable Flow support
 let g:javascript_plugin_flow = 1
 
 " Rename open file
 Plugin 'danro/rename.vim'
-
-" CoffeeScript syntax highlighting
-Plugin 'kchmck/vim-coffee-script'
 
 " Comments!
 Plugin 'tpope/vim-commentary'
@@ -60,13 +41,11 @@ Plugin 'leafgarland/typescript-vim'
 " Status bar
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+" git status in airline
 Plugin 'tpope/vim-fugitive'
 
 " GitHub sugar
 Plugin 'tpope/vim-rhubarb'
-
-" Automatically save folds
-Plugin 'vim-scripts/restore_view.vim'
 
 " Rust extensions
 Plugin 'rust-lang/rust.vim'
