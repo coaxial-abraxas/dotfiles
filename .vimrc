@@ -62,6 +62,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 
+" GitHub sugar
+Plugin 'tpope/vim-rhubarb'
+
 " Automatically save folds
 Plugin 'vim-scripts/restore_view.vim'
 
