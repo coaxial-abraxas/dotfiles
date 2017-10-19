@@ -147,3 +147,4 @@ done
 
 unset funcs
 unset _is_bash
+MANPATH=$MANPATH:$HOME/share/man
