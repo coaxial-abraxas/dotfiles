@@ -65,6 +65,9 @@ let g:workspace_autosave_always = 1
 " toggle workspace with leader-s
 noremap <leader>s :ToggleWorkspace<CR>
 
+" Autoimport statements for JS
+Plugin 'galooshi/vim-import-js'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
