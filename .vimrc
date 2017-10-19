@@ -68,10 +68,6 @@ noremap <leader>s :ToggleWorkspace<CR>
 " Autoimport statements for JS
 Plugin 'galooshi/vim-import-js'
 
-" Folding
-Plugin 'pseewald/vim-anyfold'
-let anyfold_activate = 1
-set foldlevel=0
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
