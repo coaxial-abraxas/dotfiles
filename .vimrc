@@ -70,6 +70,11 @@ Plugin 'galooshi/vim-import-js'
 
 " Emmet
 Plugin 'mattn/emmet-vim'
+let g:user_emmet_settings = {
+      \  'javascript.jsx' : {
+      \    'extends' : 'jsx',
+      \  },
+      \}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
