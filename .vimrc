@@ -75,6 +75,7 @@ let g:user_emmet_settings = {
       \    'extends' : 'jsx',
       \  },
       \}
+let g:user_emmet_mode='a'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
