@@ -17,23 +17,11 @@ Plugin 'airblade/vim-gitgutter'
 " A dark color theme
 Plugin 'sjl/badwolf'
 
-" JS highlighting etc
-Plugin 'pangloss/vim-javascript'
-" Enable Flow support
-let g:javascript_plugin_flow = 1
-
 " Comments!
 Plugin 'tpope/vim-commentary'
 
 " Fuzzy file finder
 Plugin 'ctrlpvim/ctrlp.vim'
-
-" React syntax highlighting
-Plugin 'mxw/vim-jsx'
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-
-" TypeScript syntax highlighting
-Plugin 'leafgarland/typescript-vim'
 
 " Status bar
 Plugin 'vim-airline/vim-airline'
@@ -43,9 +31,6 @@ Plugin 'tpope/vim-fugitive'
 
 " GitHub sugar
 Plugin 'tpope/vim-rhubarb'
-
-" Rust extensions
-Plugin 'rust-lang/rust.vim'
 
 " Improve JSON highlighting
 Plugin 'leshill/vim-json'
@@ -80,6 +65,9 @@ noremap <leader>w :BD<CR>
 
 " unix commands to vim commands
 Plugin 'tpope/vim-eunuch'
+
+" All in one syntax highlighting
+Plugin 'sheerun/vim-polyglot'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
