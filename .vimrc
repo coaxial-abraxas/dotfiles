@@ -22,9 +22,6 @@ Plugin 'pangloss/vim-javascript'
 " Enable Flow support
 let g:javascript_plugin_flow = 1
 
-" Rename open file
-Plugin 'danro/rename.vim'
-
 " Comments!
 Plugin 'tpope/vim-commentary'
 
@@ -80,6 +77,9 @@ let g:user_emmet_mode='a'
 " Close buffer without closing vim
 Plugin 'qpkorr/vim-bufkill'
 noremap <leader>w :BD<CR>
+
+" unix commands to vim commands
+Plugin 'tpope/vim-enuch'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
