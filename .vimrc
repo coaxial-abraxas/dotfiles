@@ -14,35 +14,8 @@ Plugin 'gmarik/Vundle.vim'
 " git gutters!
 Plugin 'airblade/vim-gitgutter'
 
-" D (as in DTrace) syntax highlighting
-Plugin 'JesseKPhillips/d.vim'
-
-" Easier to view undo tree
-Plugin 'sjl/gundo.vim'
-
 " A dark color theme
 Plugin 'sjl/badwolf'
-
-" Slim syntax highlighting
-Plugin 'slim-template/vim-slim'
-
-" Text snippets àla TextMate (required for vim-es6)
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-
-" JS highlighting etc
-Plugin 'pangloss/vim-javascript'
-" " Enable Flow support
-" Enable Flow support
-let g:javascript_plugin_flow = 1
-
-" Rename open file
-Plugin 'danro/rename.vim'
-
-" CoffeeScript syntax highlighting
-Plugin 'kchmck/vim-coffee-script'
 
 " Comments!
 Plugin 'tpope/vim-commentary'
@@ -50,32 +23,51 @@ Plugin 'tpope/vim-commentary'
 " Fuzzy file finder
 Plugin 'ctrlpvim/ctrlp.vim'
 
-" React syntax highlighting
-Plugin 'mxw/vim-jsx'
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-
-" TypeScript syntax highlighting
-Plugin 'leafgarland/typescript-vim'
-
 " Status bar
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+" git status in airline
 Plugin 'tpope/vim-fugitive'
 
 " GitHub sugar
 Plugin 'tpope/vim-rhubarb'
-
-" Automatically save folds
-Plugin 'vim-scripts/restore_view.vim'
-
-" Rust extensions
-Plugin 'rust-lang/rust.vim'
 
 " Improve JSON highlighting
 Plugin 'leshill/vim-json'
 
 " Asynchronous linting
 Plugin 'w0rp/ale'
+
+" Interface with OS X Dash
+Plugin 'rizzatti/dash.vim'
+
+" Session management
+Plugin 'thaerkh/vim-workspace'
+let g:workspace_autosave_always = 1
+" toggle workspace with leader-s
+noremap <leader>s :ToggleWorkspace<CR>
+
+" Autoimport statements for JS
+Plugin 'galooshi/vim-import-js'
+
+" Emmet
+Plugin 'mattn/emmet-vim'
+let g:user_emmet_settings = {
+      \  'javascript.jsx' : {
+      \    'extends' : 'jsx',
+      \  },
+      \}
+let g:user_emmet_mode='a'
+
+" Close buffer without closing vim
+Plugin 'qpkorr/vim-bufkill'
+noremap <leader>w :BD<CR>
+
+" unix commands to vim commands
+Plugin 'tpope/vim-eunuch'
+
+" All in one syntax highlighting
+Plugin 'sheerun/vim-polyglot'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
