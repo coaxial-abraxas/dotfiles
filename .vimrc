@@ -77,6 +77,10 @@ let g:user_emmet_settings = {
       \}
 let g:user_emmet_mode='a'
 
+" Close buffer without closing vim
+Plugin 'qpkorr/vim-bufkill'
+noremap <leader>w :BD<CR>
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
