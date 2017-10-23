@@ -69,6 +69,9 @@ Plugin 'tpope/vim-eunuch'
 " All in one syntax highlighting
 Plugin 'sheerun/vim-polyglot'
 
+" Per project editor config
+Plugin 'editorconfig/editorconfig-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
