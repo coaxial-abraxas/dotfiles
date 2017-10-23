@@ -79,7 +79,7 @@ Plugin 'qpkorr/vim-bufkill'
 noremap <leader>w :BD<CR>
 
 " unix commands to vim commands
-Plugin 'tpope/vim-enuch'
+Plugin 'tpope/vim-eunuch'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
