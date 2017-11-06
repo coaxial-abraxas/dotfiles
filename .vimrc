@@ -43,6 +43,7 @@ Plugin 'rizzatti/dash.vim'
 
 " Session management
 Plugin 'thaerkh/vim-workspace'
+let g:workspace_persist_undo_history = 0
 let g:workspace_autosave_always = 1
 " toggle workspace with leader-s
 noremap <leader>s :ToggleWorkspace<CR>
