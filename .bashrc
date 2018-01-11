@@ -148,3 +148,6 @@ done
 unset funcs
 unset _is_bash
 MANPATH=$MANPATH:$HOME/share/man
+
+# shellcheck source=/dev/null
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
