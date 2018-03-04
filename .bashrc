@@ -101,9 +101,6 @@ function _tweak_history {
   # Storage is cheap
   export HISTSIZE=50000
   export HISTFILESIZE=500000
-
-  # Disable terminal freeze so Ctrl-s works when searching the history
-  stty -ixon
 }
 
 function _vim_ftw {
