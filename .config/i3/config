@@ -167,4 +167,4 @@ bar {
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id copyq
 exec --no-startup-id redshift-gtk
-exec compton --config ~/.config/compton.conf -b
+exec --no-startup-id compton --config ~/.config/compton.conf -b
