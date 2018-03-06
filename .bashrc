@@ -123,6 +123,15 @@ function _load_nvm {
   [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 }
 
+function _unlock_keyring_for_cli {
+  if [ -n "$DESKTOP_SESSION" ];then
+    if hash gnome-keyring-daemon 2>/dev/null; then
+      eval "$(gnome-keyring-daemon --start)"
+      export SSH_AUTH_SOCK
+    fi
+  fi
+}
+
 declare -a funcs=(\
   _enable_completion \
   _iterm2_features \
@@ -133,6 +142,7 @@ declare -a funcs=(\
   _ssh_hostname_completion \
   _tell_fortune \
   _tweak_history \
+  _unlock_keyring_for_cli \
   _vim_ftw \
 )
 
