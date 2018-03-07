@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+# Doesn't work because it needs all output to json in an array
+/usr/bin/i3status -c $HOME/.config/i3status/config | while :
+do
+  read line
+    RAM=$(awk '/MemTotal/ {memtotal=$2}; /MemFree/ {memfree=$2}; /Buffers/ {buffers=$2}; /Cached/ {cached=$2}; END { printf("%.1f/%.1fGB", (memtotal / 1024^2 - ((memtotal / 1024^2 - memfree / 1024^2) - (buffers / 1024^2 + cached / 1024^2))), (memtotal / 1024^2)) }' /proc/meminfo);
+  printf "%s\n" "$line | $RAM"
+done
