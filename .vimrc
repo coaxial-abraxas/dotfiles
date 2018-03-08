@@ -156,11 +156,6 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set a max line length before wrapping
-  autocmd FileType text setlocal textwidth=79
-  " And for any other file as well
-  set textwidth=79
-
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
@@ -215,7 +210,7 @@ set expandtab
 " Close current buffer and switch to the previous one
 nnoremap <C-c> :bd\|bp #<CR>
 
-" Mark the 120 chars line limit
+" Mark the line limit
 set cc=80
 
 " Enable visual bell and disable audible bell
