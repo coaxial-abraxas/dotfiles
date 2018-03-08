@@ -193,7 +193,7 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 
 # Use a custom prefs file
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
-defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles"
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/dotfiles"
 
 
 ##############################################
