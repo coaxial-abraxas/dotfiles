@@ -10,6 +10,7 @@ declare -a scripts=(\
   .bashrc_local\
   .path\
   .profile\
+  ./root/bin/lockscreen\
 )
 
 for script in "${scripts[@]}"; do
