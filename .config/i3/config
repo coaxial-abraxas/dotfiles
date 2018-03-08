@@ -181,6 +181,19 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+mode "output layout" {
+        # docked
+        bindsym d exec --no-startup-id $HOME/.screenlayout/docked.sh; mode "default"
+        # undocked
+        bindsym u exec --no-startup-id $HOME/.screenlayout/undocked.sh; mode "default"
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+o mode "output layout"
+
 # control volume from media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
