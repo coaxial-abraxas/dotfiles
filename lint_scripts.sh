@@ -1,18 +1,20 @@
-#!/usr/bin/env bash
-set -o errexit -o nounset -o pipefail
+#!/bin/bash
+set -o nounset -o pipefail
+shopt -s globstar nullglob dotglob
 
 declare -a scripts=(\
-  bootstrap*.sh\
-  lib/scripts/*.sh\
-  .bash_*\
+  ./**/*.sh\
+  .bash_aliases\
+  .bash_prompt\
   .bashrc\
+  .bashrc_local\
+  .path\
   .profile\
 )
 
 for script in "${scripts[@]}"; do
-  # ignore vim swap files and artifacts
-  if [[ ! "$script" =~ ~$|sw.?$ ]]; then
-    bash -n "$script"
-    shellcheck -x "$script"
-  fi
+  echo "$script"
+  bash -n "$script" || exit
+  shellcheck -x "$script" || exit
 done
+
