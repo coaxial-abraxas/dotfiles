@@ -211,6 +211,9 @@ for_window [instance="^Navigator$"] move to workspace $workspace1
 bindsym Print exec --no-startup-id gnome-screenshot
 bindsym --release Shift+Print exec --no-startup-id gnome-screenshot --area
 
+# lock screen manually
+bindsym Ctrl+Mod1+l exec ~/bin/lockscreen
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -238,3 +241,7 @@ exec sh -c 'export XDG_CONFIG_DIRS=; signal-desktop'
 exec sh -c 'export XDG_CONFIG_DIRS=; telegram-desktop'
 for_window [class="^Signal$"] move to workspace $workspace6
 for_window [class="^TelegramDesktop$"] move to workspace $workspace6
+# lock the screen after a while
+exec --no-startup-id xautolock -time 15 -secure -locker ~/bin/lockscreen
+# suspend after a while
+exec --no-startup-id xautolock -time 45 -secure -locker "systemctl suspend"
