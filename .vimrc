@@ -79,6 +79,11 @@ Plugin 'raimondi/delimitmate'
 " Logstash files syntax highlighting
 Plugin 'robbles/logstash.vim'
 
+" Better Postgres syntax highlighting
+Plugin 'exu/pgsql.vim'
+" Consider all .sql files as Postgres files
+let g:sql_type_default = 'pgsql'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
