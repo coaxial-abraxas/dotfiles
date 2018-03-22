@@ -226,7 +226,6 @@ bar {
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id copyq
 exec --no-startup-id redshift-gtk
-exec --no-startup-id compton --config ~/.config/compton.conf -b
 # launch a vim instance on the scratchpad workspace
 exec terminator --title scratchvim -e vim
 for_window [title="^scratchvim$"] move scratchpad
