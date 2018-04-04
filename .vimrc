@@ -69,6 +69,7 @@ Plugin 'tpope/vim-eunuch'
 
 " All in one syntax highlighting
 Plugin 'sheerun/vim-polyglot'
+let g:javascript_plugin_flow = 1
 
 " Per project editor config
 Plugin 'editorconfig/editorconfig-vim'
