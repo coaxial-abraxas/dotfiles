@@ -69,6 +69,11 @@ Plugin 'tpope/vim-eunuch'
 " All in one syntax highlighting
 Plugin 'sheerun/vim-polyglot'
 let g:javascript_plugin_flow = 1
+" Uncomment for autofolding JS files
+" augroup javascript_folding
+"   au!
+"   au FileType javascript setlocal foldmethod=syntax
+" augroup END
 
 " Per project editor config
 Plugin 'editorconfig/editorconfig-vim'
