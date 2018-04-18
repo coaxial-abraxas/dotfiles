@@ -84,6 +84,8 @@ Plugin 'exu/pgsql.vim'
 " Consider all .sql files as Postgres files
 let g:sql_type_default = 'pgsql'
 
+Plugin 'tpope/vim-unimpaired'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -258,7 +260,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 " Ignore directories
 " let g:ctrlp_custom_ignore = '\v[\/](tmp\|node_modules)$'
-set wildignore+=*/tmp/*,*/node_modules/*
+set wildignore+=*/tmp/*,*/node_modules/*,*/coverage/*
 " Dont crawl parent directories
 let g:ctrlp_working_path_mode = 'ra'
 
