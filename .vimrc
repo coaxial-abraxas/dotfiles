@@ -44,7 +44,6 @@ Plugin 'rizzatti/dash.vim'
 " Session management
 Plugin 'thaerkh/vim-workspace'
 let g:workspace_persist_undo_history = 0
-let g:workspace_autosave_always = 1
 " toggle workspace with leader-s
 noremap <leader>s :ToggleWorkspace<CR>
 
@@ -70,6 +69,11 @@ Plugin 'tpope/vim-eunuch'
 " All in one syntax highlighting
 Plugin 'sheerun/vim-polyglot'
 let g:javascript_plugin_flow = 1
+" Uncomment for autofolding JS files
+" augroup javascript_folding
+"   au!
+"   au FileType javascript setlocal foldmethod=syntax
+" augroup END
 
 " Per project editor config
 Plugin 'editorconfig/editorconfig-vim'
@@ -84,6 +88,8 @@ Plugin 'robbles/logstash.vim'
 Plugin 'exu/pgsql.vim'
 " Consider all .sql files as Postgres files
 let g:sql_type_default = 'pgsql'
+
+Plugin 'tpope/vim-unimpaired'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -119,12 +125,7 @@ endif
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file (restore to previous version)
-  set undofile		" keep an undo file (undo changes after closing)
-endif
+set nobackup undofile swapfile
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -259,7 +260,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 " Ignore directories
 " let g:ctrlp_custom_ignore = '\v[\/](tmp\|node_modules)$'
-set wildignore+=*/tmp/*,*/node_modules/*
+set wildignore+=*/tmp/*,*/node_modules/*,*/coverage/*
 " Dont crawl parent directories
 let g:ctrlp_working_path_mode = 'ra'
 
@@ -299,3 +300,6 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" write with sudo using :w!!
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!

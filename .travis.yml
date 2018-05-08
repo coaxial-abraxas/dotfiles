@@ -4,8 +4,6 @@ language: sh
 # From https://github.com/koalaman/shellcheck/wiki/TravisCI
 addons:
   apt:
-    sources:
-      - debian-sid    # Grab shellcheck from the Debian repo (o_O)
     packages:
       - shellcheck
 
