@@ -56,13 +56,13 @@ alias ciw='while true; do
     icon="question"
     ;;
   esac
-  
+
   echo -n "${icon}" | nc -4u -w0 localhost 1738
-  
+
   if [ $icon == "green" ] || [ $icon == "red" ]; then
     break
   fi
-  
+
   sleep 5;
 done &'
 
@@ -72,4 +72,9 @@ alias tnode='tree -I node_modules'
 # FIXME Linux only, OSX uses pbcopy
 if hash xclip 2>/dev/null; then
   alias cb='xclip -sel clip'
+fi
+
+# this is easier to type
+if hash git 2>/dev/null; then
+  alias gi=git
 fi
