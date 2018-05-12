@@ -15,7 +15,7 @@ set $workspace1 1: www
 set $workspace2 2: mail
 set $workspace3 3: terminal
 set $workspace4 4: irc
-set $workspace5 5: keepass
+set $workspace5 5
 set $workspace6 6: im
 set $workspace7 7
 set $workspace8 8
@@ -232,9 +232,6 @@ for_window [title="^scratchvim$"] move scratchpad
 # launch thunderbird and keep it in the mail workspace
 exec thunderbird
 for_window [class="Thunderbird"] move to workspace $workspace2
-# password manager (with electron workaround)
-exec sh -c 'export XDG_CONFIG_DIRS=; KeeWeb'
-for_window [class="^KeeWeb$"] move to workspace $workspace5
 # im services
 exec sh -c 'export XDG_CONFIG_DIRS=; signal-desktop'
 exec sh -c 'export XDG_CONFIG_DIRS=; telegram-desktop'
