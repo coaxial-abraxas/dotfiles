@@ -37,6 +37,9 @@
   s = status
   t = tag -a
   uc = reset --soft HEAD~1 # Undo Commit
+  puo = push -u origin
+  amd = commit --amend
+  fxp = commit --fixup=
 
 [push]
   default = simple
