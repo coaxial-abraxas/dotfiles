@@ -1,0 +1,19 @@
+#!/bin/sh
+# This hooks script syncs task warrior to the configured task server.
+# The on-exit event is triggered once, after all processing is complete.
+
+# Make sure hooks are enabled
+
+
+# Count the number of tasks modified
+mod_tasks_count=0
+#shellcheck disable=2162,2034
+while read modified_task; do
+  mod_tasks_count=$((mod_tasks_count + 1))
+done
+
+if [ $mod_tasks_count -gt 0 ]; then
+  task sync
+fi
+
+exit 0
