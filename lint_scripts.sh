@@ -11,7 +11,7 @@ declare -a scripts=(\
   .path\
   .profile\
   ./root/bin/lockscreen\
-  .task/hooks/*
+  .task/hooks/on-exit
 )
 
 for script in "${scripts[@]}"; do
