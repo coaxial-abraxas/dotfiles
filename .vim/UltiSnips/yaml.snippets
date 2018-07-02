@@ -1,0 +1,188 @@
+global !p
+def ubuntu_numeric_to_shortname(numeric_version):
+		num_to_alpha = {
+				'1204': 'precise',
+				'1210': 'quantal',
+				'1304': 'raring',
+				'1310': 'saucy',
+				'1404': 'trusty',
+				'1410': 'utopic',
+				'1504': 'vivid',
+				'1510': 'wily',
+				'1604': 'xenial',
+				'1610': 'yakkety',
+				'1704': 'zesty',
+				'1710': 'artful',
+				'1804': 'bionic',
+				'1810': 'cosmic',
+		}
+
+		return num_to_alpha[numeric_version]
+endglobal
+
+snippet "([uU])b(\d+)" "Convert Ubuntu numerical versions to names" r
+`!p
+distro_name = ubuntu_numeric_to_shortname(match.group(2))
+if match.group(1) == 'U':
+	distro_name = distro_name.title()
+snip.rv = snip.mkline(distro_name)
+`
+endsnippet
+
+snippet travis ".travis.yml outline" b
+---
+jobs:
+  include:
+    - stage: test
+			${8:sudo: required}
+      language: ${1:python}
+      python: "${2:2.7}"
+      cache: ${3:pip}
+      ${4:services:
+        - docker}
+      ${5:install:
+        - pip install ansible
+        - pip install docker-py
+        - pip install molecule}
+      script:
+        - ${6:molecule test}
+
+${7:notifications:
+	webhooks: https://galaxy.ansible.com/api/v1/notifications/}$0
+endsnippet
+
+snippet molplatub "Molecule Ubuntu systemd platform" b
+- name: ${1:instance}
+	image: ${2:solita/ubuntu-systemd}:${3:16.04}
+	${4:privileged: ${5:true}}
+	command: ${6:/sbin/init}
+	capabilities:
+		- SYS_ADMIN
+	volumes:
+		`!p snip.rv = "- /sys/fs/cgroup:/sys/fs/cgroup:ro" if t[5] == "true" else ""`
+endsnippet
+
+snippet anslintignore "Add tag to ignore lint errors on Ansible task"
+tags:
+  - skip_ansible_lint
+endsnippet
+
+snippet ansplaybook "Basic Ansible playbook outline"
+---
+- hosts: all
+  become: true
+`!p
+if t[100]:
+	snip >> 1
+	snip.rv += snip.mkline('gather_facts: false')
+else:
+	snip.rv = ""
+`
+  vars_files:
+    - vars.yml
+  vars:
+    bootstrap_host: true  # enable if host needs python, firewall, etc.
+    pip_install_packages:
+      - name: docker
+      - name: docker-compose
+
+  tasks:
+    - name: Configure host
+      include_role:
+        name: "{{ rolevar.name }}"
+      when: rolevar.when
+      with_items:
+${100:`!p
+snip >> 4
+snip.rv = snip.mkline("- name: coaxial.raw-python")
+snip >> 1
+snip.rv += '\n' + snip.mkline('when: "{{ bootstrap_host }}"')
+`}
+        - name: coaxial.base
+          when: "{{ bootstrap_host }}"
+        - name: geerlingguy.pip
+        - name: geerlingguy.docker
+				- name: ${200:myrole}
+      loop_control:
+				loop_var: rolevar
+endsnippet
+
+snippet ansreq "Basic Ansible roles requirements" b
+---
+${100:- src: coaxial.raw-python}
+${200:- src: coaxial.base}
+- src: geerlingguy.docker
+- src: geerlingguy.pip
+- src: ${300:myrole}
+endsnippet
+
+snippet ansmeta "Ansible role metadata outline" b
+---
+galaxy_info:
+  author: ${100:Coaxial}
+  description: ${200:Role description}
+  company: ${300:64b.it}
+  license: ${400:MIT}
+  min_ansible_version: 1.2
+  platforms:
+${500:    - name: Ubuntu
+      versions:
+        - xenial}
+
+  galaxy_tags:
+${600:    - single words only}
+
+dependencies: ${700:[]}
+endsnippet
+
+snippet molsysd "molecule.yml systemd cofig file"
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+${100:`!p
+instances = [
+	{
+		"name": "ubuntuXenial",
+		"image": "solita/ubuntu-systemd:16.04"
+	},
+	{
+		"name": "ubuntuBionic",
+		"image": "solita/ubuntu-systemd:18.04"
+	},
+]
+
+for idx, i in enumerate(instances):
+	snip >> 1
+	snip.rv += snip.mkline('- name: %s' % i["name"])
+	snip >> 1
+	snip += 'image: %s' % i["image"]
+	snip += 'privileged: true'
+	snip += 'command: /sbin/init'
+	snip += 'capabilities:'
+	snip >> 1
+	snip += '- SYS_ADMIN'
+	snip << 1
+	snip += 'volumes:'
+	snip >> 1
+	snip += '- /sys/fs/cgroup:/sys/fs/cgroup:ro'
+	snip.rv += '\n'
+	snip << 3
+`}
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+scenario:
+  name: default
+${300:  test_sequence: ['lint', 'destroy', 'dependency', 'syntax', 'create', 'prepare', 'converge', 'side_effect', 'verify', 'destroy']}
+verifier:
+  name: testinfra
+  lint:
+		name: flake8
+		enabled: true
+endsnippet

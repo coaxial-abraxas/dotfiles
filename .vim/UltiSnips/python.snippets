@@ -1,0 +1,6 @@
+snippet titest "testinfra test" b
+def test_${100:subject}(host):
+	${200:f = host.file('/etc/hosts')}
+
+	assert ${300:f.exists}
+endsnippet
