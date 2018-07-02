@@ -102,6 +102,17 @@ let g:UltiSnipsEditSplit="vertical"
 " Store snippets where I can find them
 let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips", "UltiSnips"]
 
+" Note taking
+Plugin 'vimwiki/vimwiki'
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdow': 'markdown', '.mdown': 'markdown'}
+let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
+" Instant markdown previews
+Plugin 'suan/vim-instant-markdown'
+" Autopreview might be annoying, uncomment to disable
+" let g:instant_markdown_autostart = 0
+" Preview with \md
+map <leader>md :InstantMarkdownPreview<CR>
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
