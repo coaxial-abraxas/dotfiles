@@ -4,7 +4,7 @@
 if [[ $OSTYPE =~ linux ]]; then
   alias ll='ls -lah --color=auto'
 else
-  alias ll='ls -laGh'
+  alias ll='ls -clashBG'
 fi
 
 if hash hub 2>/dev/null; then
