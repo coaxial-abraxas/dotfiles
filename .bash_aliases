@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # ^ Enables ShellCheck
 
+# -G is enable color on OSX, but hide groups on Linux
 if [[ $OSTYPE =~ linux ]]; then
-  alias ll='ls -lah --color=auto'
+  alias ll='ls -clashB --color=auto'
 else
   alias ll='ls -clashBG'
 fi
