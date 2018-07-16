@@ -79,3 +79,7 @@ fi
 if hash git 2>/dev/null; then
   alias gi=git
 fi
+
+if hash tree 2>/dev/null; then
+  alias t=tree -aI '.git|node_modules'
+fi
