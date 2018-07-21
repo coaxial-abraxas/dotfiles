@@ -56,8 +56,3 @@ if hash setxkbpmap 2>/dev/null; then
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
-
-if hash yarn 2>/dev/null; then
-  PATH="$PATH:$(yarn global bin):$(yarn global dir)"
-  export PATH
-fi

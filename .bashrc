@@ -161,3 +161,8 @@ MANPATH=$MANPATH:$HOME/share/man
 
 # shellcheck source=/dev/null
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+if hash yarn 2>/dev/null; then
+  PATH="$PATH:$(yarn global bin):$(yarn global dir)"
+  export PATH
+fi
