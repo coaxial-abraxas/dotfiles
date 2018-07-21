@@ -95,6 +95,9 @@ function _setup_docker_client {
 }
 
 function _tweak_history {
+  # Don't save duplicate commands and commands starting with ` ` to history
+  export HISTCONTROL=ignoreboth
+
   # Save history as commands are entered
   export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
