@@ -39,7 +39,9 @@ servers = (
     port = "21696";
     use_ssl = "yes";
     ssl_verify = "no";
+    ssl_cert = "~/.irssi/certs/hfp.pem";
     autoconnect = "yes";
+    password = "znc";
   }
 );
 
@@ -383,6 +385,20 @@ statusbar = {
       items = {
         barstart = { priority = "100"; };
         awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_1 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_2 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_2 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
     };
