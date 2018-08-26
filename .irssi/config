@@ -34,14 +34,14 @@ servers = (
     port = "6667";
   },
   {
-    address = "tardis.it.cx";
+    address = "bnc.64b.it";
     chatnet = "znc";
-    port = "21696";
+    port = "1888";
     use_ssl = "yes";
     ssl_verify = "no";
-    ssl_cert = "~/.irssi/certs/hfp.pem";
+    ssl_cert = "~/.irssi/certs/bnc_64b_it.pem";
     autoconnect = "yes";
-    password = "znc";
+    password = "irssi";
   }
 );
 
@@ -114,7 +114,7 @@ chatnets = {
     max_msgs = "1";
     max_whois = "1";
   };
-  znc = { type = "IRC"; };
+  znc = { type = "IRC"; username = "coaxial"; };
 };
 
 channels = (
@@ -388,32 +388,15 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_1 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_1 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
-    awl_2 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_2 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
-};
-settings = {
-  core = {
-    real_name = "hfp";
-    user_name = "hfp";
-    nick = "hfp";
-    timestamp_format = "%e-%b %R";
-    log_timestamp = "%F %H:%M:%S";
-  };
-  "fe-text" = { actlist_sort = "refnum"; };
-  "perl/core/scripts" = { splitlong_max_length = "450"; };
 };
 logs = { };
 ignores = ( { level = "JOINS PARTS QUITS"; } );
+settings = {
+  "fe-text" = { actlist_sort = "refnum"; };
+  core = { 
+    real_name = "coaxial";
+    nick = "coaxial";
+    user_name = "coaxial";
+  };
+};
