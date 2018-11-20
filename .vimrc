@@ -80,6 +80,9 @@ Plugin 'editorconfig/editorconfig-vim'
 
 " Autoclose quotes etc
 Plugin 'raimondi/delimitmate'
+let delimitMate_expand_space = 1
+let delimitMate_expand_inside_quotes = 1
+let delimitMate_expand_cr = 1
 
 " Logstash files syntax highlighting
 Plugin 'robbles/logstash.vim'
