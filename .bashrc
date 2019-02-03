@@ -14,12 +14,14 @@ if [ -f "$HOME/.bashrc_local" ]; then
   source "$HOME/.bashrc_local"
 fi
 
+# set to 256 colors if outside of tmux (tmux will take care of itself)
+[ -z "$TMUX" ] && export TERM=xterm-256color
+
 # added by travis gem
 # shellcheck disable=SC1090
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
 
 # shellcheck disable=SC1090
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 function _tell_fortune {
   if hash fortune 2>/dev/null; then
@@ -166,3 +168,13 @@ if hash yarn 2>/dev/null; then
   PATH="$PATH:$(yarn global bin):$(yarn global dir)"
   export PATH
 fi
+
+# added by travis gem
+# shellcheck disable=SC1091
+[ -f /home/coaxial/.travis/travis.sh ] && source /home/coaxial/.travis/travis.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
