@@ -28,7 +28,9 @@ set $workspace10 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
+# font pango:Anonymous Pro 9
 font pango:Anonymous Pro 9
+# font Terminus Regular, pango:Anonymous Pro, 9
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -223,7 +225,7 @@ bar {
 # Autostart applications
 # exec --no-startup-id dockd --daemon
 # firefox doesn't output any sound without this
-exec --no-startup-id start-pulseaudio-x11
+# exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id copyq
 exec --no-startup-id redshift-gtk
 # launch a vim instance on the scratchpad workspace
@@ -241,3 +243,4 @@ for_window [class="^TelegramDesktop$"] move to workspace $workspace6
 exec --no-startup-id xautolock -time 15 -secure -locker ~/bin/lockscreen
 # suspend after a while
 exec --no-startup-id xautolock -time 45 -secure -locker "systemctl suspend"
+exec --no-startup-id /usr/bin/dockd --daemon

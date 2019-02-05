@@ -10,6 +10,10 @@ elif [ "$os" == "Linux" ]; then
 fi
 
 # Downloads and copies over Anonymous Pro
-curl http://www.marksimonson.com/assets/content/fonts/AnonymousPro-1.002.zip -o anonymous_font.zip -sS &&\
-  unzip anonymous_font.zip -d "$fonts_dir" &&\
+curl https://www.marksimonson.com/assets/content/fonts/AnonymousPro-1.002.zip -o anonymous_font.zip -sS &&\
+  unzip ./anonymous_font.zip -d "$fonts_dir" &&\
   rm anonymous_font.zip
+# and Terminus
+curl https://files.ax86.net/terminus-ttf/files/latest.zip -o terminus_font.zip -sS &&\
+  unzip ./terminus_font.zip -d "$fonts_dir" &&\
+  rm terminus_font.zip

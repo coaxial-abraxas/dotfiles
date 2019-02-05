@@ -41,7 +41,7 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Disable local Time Machine snapshots
-sudo tmutil disablelocal
+sudo tmutil disable
 
 
 ##############################################
@@ -79,6 +79,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Faster KeyRepeat
 defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain InitialKeyRepeat -int 25
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Disable long press for accentuated chars
@@ -201,7 +202,7 @@ defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/dotf
 ##############################################
 
 # Enable FileVault
-if fdesetup status > /dev/null = "FileVault is Off."
+if fdesetup status | grep Off > /dev/null
 then
 	sudo fdesetup enable
 fi
@@ -210,7 +211,8 @@ fi
 spctl --enable --label "Developer ID"
 
 # Destroy FileVault keys on standby
-pmset destroyfvkeyonstandby 1
+# Disabled because it borks things
+pmset destroyfvkeyonstandby 0
 
 # Enable firewall, let signed apps through
 /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on

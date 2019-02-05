@@ -169,12 +169,9 @@ if hash yarn 2>/dev/null; then
   export PATH
 fi
 
-# added by travis gem
-# shellcheck disable=SC1091
-[ -f /home/coaxial/.travis/travis.sh ] && source /home/coaxial/.travis/travis.sh
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# Disable scroll lock (ctrl-s, ctrl-q)
+# cf. https://unix.stackexchange.com/questions/72086/ctrl-s-hang-terminal-emulator
+stty -ixon

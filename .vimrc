@@ -15,7 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 
 " A dark color theme
-Plugin 'sjl/badwolf'
+Plugin 'morhetz/gruvbox'
 
 " Comments!
 Plugin 'tpope/vim-commentary'
@@ -37,6 +37,13 @@ Plugin 'leshill/vim-json'
 
 " Asynchronous linting
 Plugin 'w0rp/ale'
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'css': ['prettier'],
+      \ 'json': ['prettier'],
+      \}
+let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 1
 
 " Interface with OS X Dash
 Plugin 'rizzatti/dash.vim'
@@ -293,7 +300,7 @@ let g:ctrlp_working_path_mode = 'ra'
 cmap w!! w !sudo tee > /dev/null %
 
 " Dark colors are easier on the eyes
-colorscheme badwolf
+colorscheme gruvbox
 
 " Indent chain method calls (for leafgarland/typescript-vim)
 setlocal indentkeys+=0.

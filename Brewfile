@@ -19,8 +19,6 @@ brew 'bash'
 brew 'bash-completion'
 
 # Add extra repos
-tap 'homebrew/dupes'
-tap 'homebrew/versions'
 tap 'telemachus/homebrew-desc'
 
 # Install the essentials

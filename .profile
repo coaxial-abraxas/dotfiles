@@ -20,14 +20,6 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 fi
 
-# Enable 256 colors in terminal, as per
-# http://vim.wikia.com/wiki/256_colors_in_vim
-if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-        export TERM='xterm-256color'
-else
-        export TERM='xterm-color'
-fi
-
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 

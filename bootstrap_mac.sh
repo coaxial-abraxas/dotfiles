@@ -9,7 +9,7 @@ printf 'Configuring git...\n'
 ./lib/scripts/change_repo_origin.sh
 
 printf 'Installing fonts...\n'
-./lib/scripts/dl_fonts.sh
+./lib/scripts/dl_fonts.sh OSX
 
 printf 'Installing Xcode...\n'
 ./lib/scripts/xcode_install.sh
