@@ -28,7 +28,7 @@
   }; f"
   grep = grep -n
   inline-diff = diff --word-diff
-  l = log --pretty='%C(auto)%h %<(50,trunc)%s %C(black)%cr,% cN' --first-parent
+  l = log --pretty='%C(auto)%h %<(50,trunc)%s %C(white)%cr,% cN' --first-parent
   pf = push --force-with-lease # Push Force
   pur = pull-request
   prune = fetch --prune

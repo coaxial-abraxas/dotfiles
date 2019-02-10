@@ -14,6 +14,8 @@ declare -a dotfiles=(\
   .path\
   .profile \
   .vimrc \
+  .tmux.conf \
+  .tmux/
 )
 
 for dotfile in "${dotfiles[@]}"
