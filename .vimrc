@@ -123,6 +123,8 @@ Plugin 'suan/vim-instant-markdown'
 " Preview with \md
 map <leader>md :InstantMarkdownPreview<CR>
 
+Plugin 'osyo-manga/vim-over'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
