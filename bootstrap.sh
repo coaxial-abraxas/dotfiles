@@ -29,3 +29,5 @@ fi
 
 printf "Configuring %s...\n" "$current_os"
 "./bootstrap_$current_os.sh"
+
+printf "All done!\n"
