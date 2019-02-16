@@ -14,10 +14,10 @@ function detect_os {
   fi
 }
 
-current_os="$(detect_os)"
+current_os="$(uname | tr '[:upper:]' '[:lower:]')"
 
 printf "Yay, a new machine! Let's set it up...\n"
-printf "Detected OS is \"%s\"\n" "$current_os"
+printf "Detected OS is \"%s\"\n" detect_os
 read -r -p "Continue? [Y/n] " continue
 continue=${continue:-"y"}
 
@@ -28,4 +28,4 @@ then
 fi
 
 printf "Configuring %s...\n" "$current_os"
-./bootstrap_linux.sh
+"./bootstrap_$current_os.sh"
