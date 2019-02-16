@@ -26,8 +26,9 @@ export LANG="en_US"
 # shellcheck disable=SC2155
 export EDITOR="$(which vim)"
 
+# Load RVM into a shell session *as a function*
 # shellcheck disable=SC1090
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 export NVM_DIR="$HOME/.nvm"
 # shellcheck disable=SC1090
@@ -39,3 +40,10 @@ if hash setxkbpmap 2>/dev/null; then
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# See https://archive.fo/oQIdU or http://mywiki.wooledge.org/DotFiles for why
+# this is that way.
+if [ -n "$BASH"  ] && [ -r ~/.bashrc  ]; then
+  # shellcheck disable=SC1090
+  . "$HOME/.bashrc"
+fi
