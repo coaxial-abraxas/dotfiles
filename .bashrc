@@ -77,16 +77,6 @@ function _enable_completion {
   fi
 }
 
-function _setup_docker_client {
-  # Set env vars for docker if docker-machine is a valid command
-  if hash docker-machine 2>/dev/null; then
-    # Check if the docker daemon is running (See https://github.com/Coaxial/dotfiles/issues/3)
-    if docker-machine ip default &>/dev/null; then
-      eval "$(docker-machine env default)"
-    fi
-  fi
-}
-
 function _tweak_history {
   # Don't save duplicate commands and commands starting with ` ` to history
   export HISTCONTROL=ignoreboth
@@ -114,11 +104,6 @@ function _iterm2_features {
   fi
 }
 
-function _load_nvm {
-  # shellcheck disable=SC1090
-  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-}
-
 function _unlock_keyring_for_cli {
   if [ -n "$DESKTOP_SESSION" ];then
     if hash gnome-keyring-daemon 2>/dev/null; then
@@ -132,9 +117,7 @@ declare -a funcs=(\
   _enable_completion \
   _iterm2_features \
   _load_ancilliary_dotfiles \
-  _load_nvm \
   _set_bash_specific_options \
-  _setup_docker_client \
   _ssh_hostname_completion \
   _tweak_history \
   _unlock_keyring_for_cli \
@@ -162,6 +145,7 @@ fi
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# Disable scroll lock (ctrl-s, ctrl-q)
+# Disable scroll lock (ctrl-s, ctrl-q) but ignore errors to avoid error dialog
+# when starting the window manager
 # cf. https://unix.stackexchange.com/questions/72086/ctrl-s-hang-terminal-emulator
-stty -ixon
+stty -ixon 2>/dev/null
