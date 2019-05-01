@@ -333,3 +333,6 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " write with sudo using :w!!
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+" always have cursor in the middle of the window
+set scrolloff=9999
