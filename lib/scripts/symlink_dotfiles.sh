@@ -3,6 +3,7 @@ set -o errexit -o nounset -o pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../.."
 declare -a dotfiles=(\
+  .ansible.cfg \
   .bash_aliases \
   .bash_prompt \
   .bashrc \
