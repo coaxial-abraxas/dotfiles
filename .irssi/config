@@ -35,13 +35,23 @@ servers = (
   },
   {
     address = "bnc.64b.it";
-    chatnet = "znc";
+    chatnet = "undernet";
     port = "1888";
     use_ssl = "yes";
     ssl_verify = "no";
     ssl_cert = "~/.irssi/certs/bnc_64b_it.pem";
     autoconnect = "yes";
-    password = "irssi";
+    password = "coaxial/undernet:irssi";
+  },
+  {
+    address = "bnc.64b.it";
+    chatnet = "freenode";
+    port = "1888";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    ssl_cert = "~/.irssi/certs/bnc_64b_it.pem";
+    autoconnect = "yes";
+    password = "coaxial/freenode:irssi";
   }
 );
 
@@ -398,5 +408,9 @@ settings = {
     real_name = "coaxial";
     nick = "coaxial";
     user_name = "coaxial";
+  };
+  "irc/dcc" = {
+    dcc_upload_path = "~/irc_dcc";
+    dcc_download_path = "~/irc_dcc";
   };
 };
