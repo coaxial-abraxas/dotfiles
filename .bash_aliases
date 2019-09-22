@@ -83,3 +83,8 @@ fi
 if hash tree 2>/dev/null; then
   alias t="tree -aI '.git|node_modules|*~|*.swp'"
 fi
+
+# generate passwords, the parameter is the password length
+# TODO add a toggle for -y/--symbols
+# TODO set a default length if argument not supplied
+pwg() { pwgen -cs "$1" 64 | tr '\n' ' ' | cut -f "$(shuf -i 1-32 -n 1)" -d ' '; }

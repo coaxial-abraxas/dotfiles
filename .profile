@@ -24,7 +24,7 @@ export LANG="en_US"
 
 # Set the default editor to be vim
 # shellcheck disable=SC2155
-export EDITOR="$(which vim)"
+export EDITOR="$(command -v vim)"
 
 # Load RVM into a shell session *as a function*
 # shellcheck disable=SC1090
