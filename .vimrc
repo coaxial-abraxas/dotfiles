@@ -38,6 +38,11 @@ Plugin 'leshill/vim-json'
 " Asynchronous linting
 Plugin 'w0rp/ale'
 let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'css': ['prettier'],
+      \ 'html': ['prettier']
+      \}
 
 " Interface with OS X Dash
 Plugin 'rizzatti/dash.vim'
