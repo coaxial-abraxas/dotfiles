@@ -23,9 +23,6 @@ printf 'Linking dotfiles...\n'
 printf 'Copying local overrides...\n'
 ./lib/scripts/cp_local.sh
 
-printf 'Installing Vundle...\n'
-./lib/scripts/vundle.sh
-
 printf 'Installing RVM + Ruby...\n'
 ./lib/scripts/rvm_install.sh
 

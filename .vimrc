@@ -1,65 +1,48 @@
-" Enable Vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
+call plug#begin('~/.vim/plugged')
 " git gutters!
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " A dark color theme
-Plugin 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " Comments!
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 
 " Fuzzy file finder
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Status bar
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " git status in airline
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " GitHub sugar
-Plugin 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rhubarb'
 
 " Improve JSON highlighting
-Plugin 'leshill/vim-json'
-
-" Asynchronous linting
-Plugin 'w0rp/ale'
-let g:ale_fix_on_save = 1
-let g:ale_linters_explicit = 1
-let g:ale_fixers = {
-      \ 'javascript': ['prettier'],
-      \ 'css': ['prettier'],
-      \ 'html': ['prettier'],
-      \ 'typescript': ['prettier']
-      \}
+Plug 'leshill/vim-json'
 
 " Interface with OS X Dash
-Plugin 'rizzatti/dash.vim'
+Plug 'rizzatti/dash.vim'
 
 " Session management
-Plugin 'thaerkh/vim-workspace'
+Plug 'thaerkh/vim-workspace'
 let g:workspace_persist_undo_history = 0
 " toggle workspace with leader-s
 noremap <leader>s :ToggleWorkspace<CR>
 
 " Autoimport statements for JS
-Plugin 'galooshi/vim-import-js'
+Plug 'galooshi/vim-import-js'
 
 " Emmet
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 let g:user_emmet_settings = {
       \  'javascript.jsx' : {
       \    'extends' : 'jsx',
@@ -68,14 +51,14 @@ let g:user_emmet_settings = {
 let g:user_emmet_mode='a'
 
 " Close buffer without closing vim
-Plugin 'qpkorr/vim-bufkill'
+Plug 'qpkorr/vim-bufkill'
 noremap <leader>w :BD<CR>
 
 " unix commands to vim commands
-Plugin 'tpope/vim-eunuch'
+Plug 'tpope/vim-eunuch'
 
 " All in one syntax highlighting
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 let g:javascript_plugin_flow = 1
 " Uncomment for autofolding JS files
 " augroup javascript_folding
@@ -84,26 +67,26 @@ let g:javascript_plugin_flow = 1
 " augroup END
 
 " Per project editor config
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " Autoclose quotes etc
-Plugin 'raimondi/delimitmate'
+Plug 'raimondi/delimitmate'
 let delimitMate_expand_space = 1
 let delimitMate_expand_inside_quotes = 1
 let delimitMate_expand_cr = 1
 
 " Logstash files syntax highlighting
-Plugin 'robbles/logstash.vim'
+Plug 'robbles/logstash.vim'
 
 " Better Postgres syntax highlighting
-Plugin 'exu/pgsql.vim'
+Plug 'exu/pgsql.vim'
 " Consider all .sql files as Postgres files
 let g:sql_type_default = 'pgsql'
 
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -114,45 +97,160 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips", "UltiSnips"]
 
 " Note taking
-Plugin 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdow': 'markdown', '.mdown': 'markdown'}
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 " Instant markdown previews
-Plugin 'suan/vim-instant-markdown'
+Plug 'suan/vim-instant-markdown'
 " Autopreview might be annoying, uncomment to disable
 " let g:instant_markdown_autostart = 0
 " Preview with \md
 map <leader>md :InstantMarkdownPreview<CR>
 
-Plugin 'osyo-manga/vim-over'
+Plug 'osyo-manga/vim-over'
 
-Plugin 'stephenway/postcss.vim'
+Plug 'stephenway/postcss.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() }}
+" Manually run prettier with :Prettier
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+" typescript support with `:CocInstall coc-tsserver`
 
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2014 Feb 05
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+call plug#end()
+
+" Highlight comments in JSON files
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" Start CoC configuration
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other
+" plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current
+" paragraph
+xmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature
+" of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <C-d> <Plug>(coc-range-select)
+xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p :<C-u>CocListResume<CR>
+" End CoC configuration
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
