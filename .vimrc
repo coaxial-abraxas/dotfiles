@@ -111,6 +111,11 @@ Plug 'osyo-manga/vim-over'
 
 Plug 'stephenway/postcss.vim'
 
+Plug 'ngmy/vim-rubocop'
+
+" Install these CoC extensions if not present
+let g:coc_global_extensions = ['coc-json', 'coc-solargraph']
+
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() }}
 " Manually run prettier with :Prettier
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
@@ -441,3 +446,12 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " always have cursor in the middle of the window
 set scrolloff=9999
+
+" Triger `autoread` when files changes on disk
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None "
