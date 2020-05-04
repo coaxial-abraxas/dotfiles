@@ -8,6 +8,7 @@ declare -a dotfiles=(\
   .bash_prompt \
   .bashrc \
   .gemrc \
+  .ghc \
   .gitconfig \
   .gitignore_global \
   .gvimrc \
