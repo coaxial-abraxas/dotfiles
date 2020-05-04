@@ -401,7 +401,10 @@ statusbar = {
   };
 };
 logs = { };
-ignores = ( { level = "JOINS PARTS QUITS"; } );
+ignores = (
+  { level = "JOINS PARTS QUITS"; },
+  { mask = "xuf"; level = "ALL"; }
+);
 settings = {
   "fe-text" = { actlist_sort = "refnum"; };
   core = { 
