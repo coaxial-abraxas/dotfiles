@@ -7,5 +7,6 @@
     "scss",
     "json"
   ],
-  "prettier.disableSuccessMessage": true
+  "prettier.disableSuccessMessage": true,
+  "tslint.autoFixOnSave": true
 }
