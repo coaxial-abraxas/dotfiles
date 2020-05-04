@@ -17,7 +17,7 @@ function detect_os {
 current_os="$(uname | tr '[:upper:]' '[:lower:]')"
 
 printf "Yay, a new machine! Let's set it up...\n"
-printf "Detected OS is \"%s\"\n" detect_os
+printf "Detected OS is \"%s\"\n" "$(detect_os)"
 read -r -p "Continue? [Y/n] " continue
 continue=${continue:-"y"}
 
