@@ -4,3 +4,4 @@ away.log
 *.swp
 *.pem
 .tmux/plugins
+.ghc/ghci_history

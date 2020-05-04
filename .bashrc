@@ -149,3 +149,16 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # when starting the window manager
 # cf. https://unix.stackexchange.com/questions/72086/ctrl-s-hang-terminal-emulator
 stty -ixon 2>/dev/null
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
+
+# tabtab source for packages
+# uninstall by removing these lines
+# shellcheck source=/dev/null
+if [[ -f ~/.config/tabtab/__tabtab.bash ]]
+then
+  . ~/.config/tabtab/__tabtab.bash
+else
+  true
+fi

@@ -41,6 +41,9 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Put Go in path
+export "PATH=:$PATH:/usr/local/go/bin"
+
 # See https://archive.fo/oQIdU or http://mywiki.wooledge.org/DotFiles for why
 # this is that way.
 if [ -n "$BASH"  ] && [ -r ~/.bashrc  ]; then
