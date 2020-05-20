@@ -121,6 +121,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() }}
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 " typescript support with `:CocInstall coc-tsserver`
 
+" Show line indents
+Plug 'Yggdroot/indentLine'
+" each indent level has a different character
+let g:indentLine_char_list = ['▏', '|', '¦', '┆', '┊']
+
 call plug#end()
 
 " Highlight comments in JSON files
