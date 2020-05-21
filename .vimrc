@@ -10,6 +10,7 @@ Plug 'airblade/vim-gitgutter'
 
 " A dark color theme
 Plug 'morhetz/gruvbox'
+Plug 'rafalbromirski/vim-aurora'
 
 " Comments!
 Plug 'tpope/vim-commentary'
@@ -412,8 +413,11 @@ let g:ctrlp_working_path_mode = 'ra'
 " Save files with sudo when I forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
 
-" Dark colors are easier on the eyes
-colorscheme gruvbox
+colorscheme aurora
+" Fix colors with tmux
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Indent chain method calls (for leafgarland/typescript-vim)
 setlocal indentkeys+=0.
