@@ -24,20 +24,8 @@ Plug 'vim-airline/vim-airline-themes'
 " git status in airline
 Plug 'tpope/vim-fugitive'
 
-" GitHub sugar
-Plug 'tpope/vim-rhubarb'
-
 " Improve JSON highlighting
 Plug 'leshill/vim-json'
-
-" Interface with OS X Dash
-Plug 'rizzatti/dash.vim'
-
-" Session management
-Plug 'thaerkh/vim-workspace'
-let g:workspace_persist_undo_history = 0
-" toggle workspace with leader-s
-noremap <leader>s :ToggleWorkspace<CR>
 
 " Autoimport statements for JS
 Plug 'galooshi/vim-import-js'
@@ -54,9 +42,6 @@ let g:user_emmet_mode='a'
 " Close buffer without closing vim
 Plug 'qpkorr/vim-bufkill'
 noremap <leader>w :BD<CR>
-
-" unix commands to vim commands
-Plug 'tpope/vim-eunuch'
 
 " All in one syntax highlighting
 Plug 'sheerun/vim-polyglot'
@@ -97,19 +82,10 @@ let g:UltiSnipsEditSplit="vertical"
 " Store snippets where I can find them
 let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips", "UltiSnips"]
 
-" Note taking
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdow': 'markdown', '.mdown': 'markdown'}
-let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
-" Instant markdown previews
-Plug 'suan/vim-instant-markdown'
-" Autopreview might be annoying, uncomment to disable
-" let g:instant_markdown_autostart = 0
-" Preview with \md
-map <leader>md :InstantMarkdownPreview<CR>
-
+" Preview substitutions
 Plug 'osyo-manga/vim-over'
 
+" Support PostCSS
 Plug 'stephenway/postcss.vim'
 
 Plug 'ngmy/vim-rubocop'
@@ -301,7 +277,6 @@ endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
@@ -323,20 +298,9 @@ if has("autocmd")
     \ endif
 
   augroup END
-
 else
-
   set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-    \ | wincmd p | diffthis
-endif
 
 " Count lines
 set nu
@@ -347,9 +311,6 @@ function! TRelative()
 endfunc
 
 noremap <c-t> :call TRelative()<cr>
-
-" Show delimiter for text being edited
-set cpoptions+=$
 
 " Clear search highlight with Ctrl-l
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -372,9 +333,6 @@ set cc=80
 " Enable visual bell and disable audible bell
 set vb
 set noeb
-
-" Disable auto-folding in markdown files
-let g:vim_markdown_folding_disabled=1
 
 " Use dark background color schemes
 set bg=dark
@@ -409,9 +367,6 @@ let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*/tmp/*,*/node_modules/*,*/coverage/*
 " Dont crawl parent directories
 let g:ctrlp_working_path_mode = 'ra'
-
-" Save files with sudo when I forgot to start vim using sudo
-cmap w!! w !sudo tee > /dev/null %
 
 colorscheme aurora
 " Fix colors with tmux
