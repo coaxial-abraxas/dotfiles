@@ -106,6 +106,11 @@ nnoremap <buffer> <silent> <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <buffer> <silent> <leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <buffer> <silent> <leader>rr :YcmCompleter RefactorRename<space>
 
+" Prettier formatting
+Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
+" Only format automatically when a prettier config file exists
+let g:prettier#autoformat_config_present = 1
+
 call plug#end()
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
