@@ -71,16 +71,21 @@ let g:sql_type_default = 'pgsql'
 
 Plug 'tpope/vim-unimpaired'
 
+Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
+" Edit UltiSnips in a vertical split
 let g:UltiSnipsEditSplit="vertical"
 " Store snippets where I can find them
 let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips", "UltiSnips"]
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<leader-tab>""
 
 " Preview substitutions
 Plug 'osyo-manga/vim-over'
@@ -95,7 +100,17 @@ Plug 'Yggdroot/indentLine'
 " each indent level has a different character
 let g:indentLine_char_list = ['▏', '|', '¦', '┆', '┊']
 
+" Autocompletion
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all'  }
+nnoremap <buffer> <silent> <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <buffer> <silent> <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <buffer> <silent> <leader>rr :YcmCompleter RefactorRename<space>
+
 call plug#end()
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=50
 
 " Highlight comments in JSON files
 autocmd FileType json syntax match Comment +\/\/.\+$+
