@@ -1,0 +1,38 @@
+snippet cdeg "console.debug"
+console.debug(${0:${VISUAL:value}})
+endsnippet
+
+snippet clog "console.log"
+console.log(${0:${VISUAL:value}})
+endsnippet
+
+snippet cinf "console.info"
+console.info(${0:${VISUAL:value}})
+endsnippet
+
+snippet cerr "console.error"
+console.error(${0:${VISUAL:value}})
+endsnippet
+
+snippet cwar "console.warn"
+console.warn(${0:${VISUAL:value}})
+endsnippet
+
+snippet afun "arrow function"
+(${1}) => {
+  ${2}
+}
+endsnippet
+
+# TDD snippets
+snippet tdesc "describe block"
+describe(${1:MyClass}}, () => {
+	${2:${VISUAL}}
+})
+endsnippet
+
+snippet tit "it block"
+it(${1:'tests something'}, (${2:done}) => {
+	${3}
+})
+endsnippet
