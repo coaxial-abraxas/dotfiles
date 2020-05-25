@@ -73,7 +73,6 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 " Edit UltiSnips in a vertical split
 let g:UltiSnipsEditSplit="vertical"
 " Store snippets where I can find them
