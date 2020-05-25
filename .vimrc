@@ -56,10 +56,8 @@ let g:javascript_plugin_flow = 1
 Plug 'editorconfig/editorconfig-vim'
 
 " Autoclose quotes etc
-Plug 'raimondi/delimitmate'
-let delimitMate_expand_space = 1
-let delimitMate_expand_inside_quotes = 1
-let delimitMate_expand_cr = 1
+Plug 'tpope/vim-endwise'
+Plug 'rstacruz/vim-closer'
 
 " Logstash files syntax highlighting
 Plug 'robbles/logstash.vim'
