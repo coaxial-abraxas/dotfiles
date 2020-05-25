@@ -21,6 +21,12 @@ fi
 # shellcheck disable=SC1090
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
 
+# Load z.sh
+if [ -f "$HOME/z.sh" ]; then
+  # shellcheck disable=SC1090
+  source ~/z.sh
+fi
+
 function _set_bash_specific_options {
   if [ "$_is_bash" ]; then
     # Case-insensitive globbing (used in pathname expansion)
