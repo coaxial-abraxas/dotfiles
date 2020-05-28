@@ -24,20 +24,8 @@ Plug 'vim-airline/vim-airline-themes'
 " git status in airline
 Plug 'tpope/vim-fugitive'
 
-" GitHub sugar
-Plug 'tpope/vim-rhubarb'
-
 " Improve JSON highlighting
 Plug 'leshill/vim-json'
-
-" Interface with OS X Dash
-Plug 'rizzatti/dash.vim'
-
-" Session management
-Plug 'thaerkh/vim-workspace'
-let g:workspace_persist_undo_history = 0
-" toggle workspace with leader-s
-noremap <leader>s :ToggleWorkspace<CR>
 
 " Autoimport statements for JS
 Plug 'galooshi/vim-import-js'
@@ -54,9 +42,6 @@ let g:user_emmet_mode='a'
 " Close buffer without closing vim
 Plug 'qpkorr/vim-bufkill'
 noremap <leader>w :BD<CR>
-
-" unix commands to vim commands
-Plug 'tpope/vim-eunuch'
 
 " All in one syntax highlighting
 Plug 'sheerun/vim-polyglot'
@@ -86,182 +71,53 @@ let g:sql_type_default = 'pgsql'
 
 Plug 'tpope/vim-unimpaired'
 
+Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
+" Edit UltiSnips in a vertical split
 let g:UltiSnipsEditSplit="vertical"
 " Store snippets where I can find them
 let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips", "UltiSnips"]
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<leader-tab>""
 
-" Note taking
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdow': 'markdown', '.mdown': 'markdown'}
-let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
-" Instant markdown previews
-Plug 'suan/vim-instant-markdown'
-" Autopreview might be annoying, uncomment to disable
-" let g:instant_markdown_autostart = 0
-" Preview with \md
-map <leader>md :InstantMarkdownPreview<CR>
-
+" Preview substitutions
 Plug 'osyo-manga/vim-over'
 
+" Support PostCSS
 Plug 'stephenway/postcss.vim'
 
 Plug 'ngmy/vim-rubocop'
-
-" Install these CoC extensions if not present
-let g:coc_global_extensions = ['coc-json', 'coc-solargraph']
-
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() }}
-" Manually run prettier with :Prettier
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
-" typescript support with `:CocInstall coc-tsserver`
 
 " Show line indents
 Plug 'Yggdroot/indentLine'
 " each indent level has a different character
 let g:indentLine_char_list = ['▏', '|', '¦', '┆', '┊']
 
+" Autocompletion
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all'  }
+nnoremap <buffer> <silent> <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <buffer> <silent> <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <buffer> <silent> <leader>rr :YcmCompleter RefactorRename<space>
+
+" Prettier formatting
+Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
+" Only format automatically when a prettier config file exists
+let g:prettier#autoformat_config_present = 1
+
 call plug#end()
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=50
 
 " Highlight comments in JSON files
 autocmd FileType json syntax match Comment +\/\/.\+$+
-
-" Start CoC configuration
-" Some servers have issues with backup files, see #649
-set nobackup
-set nowritebackup
-
-" Better display for messages
-set cmdheight=2
-
-" You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" always show signcolumns
-set signcolumn=yes
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other
-" plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-xmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current
-" paragraph
-xmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>a <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-nmap <leader>ac <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <leader>qf <Plug>(coc-fix-current)
-
-" Create mappings for function text object, requires document symbols feature
-" of languageserver.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <C-d> <Plug>(coc-range-select)
-xmap <silent> <C-d> <Plug>(coc-range-select)
-
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
-
-" use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p :<C-u>CocListResume<CR>
-" End CoC configuration
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -301,7 +157,6 @@ endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
@@ -323,20 +178,9 @@ if has("autocmd")
     \ endif
 
   augroup END
-
 else
-
   set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-    \ | wincmd p | diffthis
-endif
 
 " Count lines
 set nu
@@ -347,9 +191,6 @@ function! TRelative()
 endfunc
 
 noremap <c-t> :call TRelative()<cr>
-
-" Show delimiter for text being edited
-set cpoptions+=$
 
 " Clear search highlight with Ctrl-l
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -372,9 +213,6 @@ set cc=80
 " Enable visual bell and disable audible bell
 set vb
 set noeb
-
-" Disable auto-folding in markdown files
-let g:vim_markdown_folding_disabled=1
 
 " Use dark background color schemes
 set bg=dark
@@ -409,9 +247,6 @@ let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*/tmp/*,*/node_modules/*,*/coverage/*
 " Dont crawl parent directories
 let g:ctrlp_working_path_mode = 'ra'
-
-" Save files with sudo when I forgot to start vim using sudo
-cmap w!! w !sudo tee > /dev/null %
 
 colorscheme aurora
 " Fix colors with tmux
