@@ -56,10 +56,8 @@ let g:javascript_plugin_flow = 1
 Plug 'editorconfig/editorconfig-vim'
 
 " Autoclose quotes etc
-Plug 'raimondi/delimitmate'
-let delimitMate_expand_space = 1
-let delimitMate_expand_inside_quotes = 1
-let delimitMate_expand_cr = 1
+Plug 'tpope/vim-endwise'
+Plug 'rstacruz/vim-closer'
 
 " Logstash files syntax highlighting
 Plug 'robbles/logstash.vim'
@@ -110,11 +108,19 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
 " Only format automatically when a prettier config file exists
 let g:prettier#autoformat_config_present = 1
 
+" scroll position in status line
+Plug 'ojroques/vim-scrollstatus'
+" add it to vim-airline
+let g:airline_section_x = '%{ScrollStatus()}'
+
 call plug#end()
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=50
+
+" Dont highligh matching parens, it's distracting
+let g:loaded_matchparen=1
 
 " Highlight comments in JSON files
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -253,9 +259,6 @@ colorscheme aurora
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-" Indent chain method calls (for leafgarland/typescript-vim)
-setlocal indentkeys+=0.
 
 " Always show vim-airline
 set laststatus=2
