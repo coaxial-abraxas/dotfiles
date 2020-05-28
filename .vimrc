@@ -26,7 +26,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 " Ignore directories
-set wildignore += */tmp/*,*/node_modules/*,*/coverage/*
+set wildignore+=*/tmp/*,*/node_modules/*,*/coverage/*
 " Dont crawl parent directories
 let g:ctrlp_working_path_mode = 'ra'
 " CtrlP to show hidden files
@@ -127,7 +127,7 @@ Plug 'vim-latex/vim-latex'
 " grep will sometimes skip displaying the file name if you search in a singe
 " file. This will confuse Latex-Suite. Set your grep program to always
 " generate a file-name.
-set grepprg = grep\ -nH\ $*
+set grepprg=grep\ -nH\ $*
 
 " Starting with Vim 7, the filetype of empty .tex files defaults to 'plaintex'
 " instead of 'tex', which results in vim-latex not being loaded. The following
@@ -142,17 +142,17 @@ call plug#end()
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime = 50
+set updatetime=50
 
 " Dont highligh matching parens, it's distracting
 let g:loaded_matchparen = 1
 
 " Allow backspacing over everything in insert mode
-set backspace = indent,eol,start
+set backspace=indent,eol,start
 
 set nobackup undofile swapfile
 " Keep 50 lines of command line history
-set history = 50
+set history=50
 " Show the cursor position all the time
 set ruler
 " display incomplete commands
@@ -169,7 +169,7 @@ inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse = a
+  set mouse=a
 endif
 
 " Switch syntax highlighting on, when the terminal has colors and switch on
@@ -215,23 +215,23 @@ set wildmenu
 " See https://old.reddit.com/r/vim/wiki/tabstop
 " Visual representation for a \t character, 8 to make it be the same on screen
 " and on paper
-set tabstop = 8
+set tabstop=8
 " Width when indenting lines with >>
-set shiftwidth = 2
+set shiftwidth=2
 " When pressing <Tab>, insert that many blanks
-set softtabstop = 2
+set softtabstop=2
 set expandtab
 set smarttab
 
 " Mark the line limit
-set colorcolumn = 80
+set colorcolumn=80
 
 " Enable visual bell and disable audible bell
 set visualbell
 set noerrorbells
 
 " Use dark background color schemes
-set background = dark
+set background=dark
 
 " Crontab workaround as per 
 " http://drawohara.com/post/6344279/crontab-temp-file-must-be-edited-in-place
@@ -247,10 +247,10 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Always show vim-airline
-set laststatus = 2
+set laststatus=2
 
 " Enable 256 colors in vim
-set t_Co = 256
+set t_Co=256
 
 " Move entire lines up and down
 " (with help from https://stackoverflow.com/a/15399297/2774883)
@@ -275,7 +275,7 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " always have cursor in the middle of the window
-set scrolloff = 9999
+set scrolloff=9999
 
 augroup AutoRead
   autocmd!
