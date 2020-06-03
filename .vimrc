@@ -112,6 +112,7 @@ Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all'  }
 nnoremap <buffer> <silent> <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <buffer> <silent> <leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <buffer> <silent> <leader>rr :YcmCompleter RefactorRename<space>
+nnoremap <buffer> <silent> <leader>oi :YcmCompleter OrganizeImports<CR>
 
 " Prettier formatting
 Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
@@ -133,6 +134,9 @@ set grepprg=grep\ -nH\ $*
 " instead of 'tex', which results in vim-latex not being loaded. The following
 " changes the default filetype back to 'tex'.
 let g:tex_flavor = 'latex'
+
+" Highlighting for npmrc, npmignore, npm-debug.log
+Plug 'rhysd/npm-filetypes.vim'
 
 call plug#end()
 
@@ -233,7 +237,7 @@ set noerrorbells
 " Use dark background color schemes
 set background=dark
 
-" Crontab workaround as per 
+" Crontab workaround as per
 " http://drawohara.com/post/6344279/crontab-temp-file-must-be-edited-in-place
 if $VIM_CRONTAB == "true"
   set nobackup
