@@ -5,3 +5,4 @@ away.log
 *.pem
 .tmux/plugins
 .ghc/ghci_history
+.asciinema/install-id

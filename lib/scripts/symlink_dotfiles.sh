@@ -4,6 +4,7 @@ set -o errexit -o nounset -o pipefail
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../.."
 declare -a dotfiles=(\
   .ansible.cfg \
+  .asciinema/ \
   .bash_aliases \
   .bash_prompt \
   .bashrc \
@@ -15,9 +16,9 @@ declare -a dotfiles=(\
   .irssi \
   .path\
   .profile \
-  .vimrc \
   .tmux.conf \
-  .tmux/
+  .tmux/ \
+  .vimrc 
 )
 
 for dotfile in "${dotfiles[@]}"
