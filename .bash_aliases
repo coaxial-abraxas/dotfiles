@@ -89,3 +89,6 @@ fi
 # arguments
 # shellcheck disable=SC2086
 pwg() { pwgen -cs $1 ${2:-32} 64 | tr '\n' ' ' | cut -f "$(shuf -i 1-32 -n 1)" -d ' '; }
+
+# Enable color output, don't page if only one screen, don't clear screen
+alias less='less -RFX'
