@@ -6,3 +6,4 @@ away.log
 .tmux/plugins
 .ghc/ghci_history
 .asciinema/install-id
+.maid/maid.log

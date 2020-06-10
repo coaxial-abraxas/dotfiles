@@ -14,6 +14,7 @@ declare -a dotfiles=(\
   .gitignore_global \
   .gvimrc \
   .irssi \
+  .maid/ \
   .path\
   .profile \
   .tmux.conf \

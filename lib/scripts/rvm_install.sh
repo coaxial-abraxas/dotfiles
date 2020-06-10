@@ -6,3 +6,5 @@ if [ ! -f "$HOME/.rvm/bin/rvm" ]; then
 else
   printf "RVM is already installed, not reinstalling.\n"
 fi
+
+echo "For the maid daily cronjob to work, don't forget to run \`rvm alias create maid ruby-<ruby-version>@maid --create\`"

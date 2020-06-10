@@ -7,6 +7,7 @@ declare -a systemfiles=(\
   usr/share/X11/xorg.conf.d/50-ltrac.conf \
   usr/share/X11/xorg.conf.d/50-trackpad.conf \
   usr/share/X11/xorg.conf.d/50-trackpoint.conf \
+  etc/cron.daily/maid \
 )
 
 for systemfile in "${systemfiles[@]}"
@@ -27,3 +28,6 @@ do
 
   ln -s "$DIR/$systemfile" "/${systemfile:-?}"
 done
+
+# anacron files must be owned by root or they won't run
+sudo chown root:root /etc/cron.daily/maid
