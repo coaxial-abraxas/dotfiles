@@ -138,6 +138,11 @@ let g:tex_flavor = 'latex'
 " Highlighting for npmrc, npmignore, npm-debug.log
 Plug 'rhysd/npm-filetypes.vim'
 
+" Handle Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Run goimports on save
+let g:go_fmt_command = "goimports"
+
 call plug#end()
 
 
