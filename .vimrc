@@ -42,7 +42,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'leshill/vim-json'
 
 " Autoimport statements for JS
-Plug 'galooshi/vim-import-js'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 
 " Emmet
 Plug 'mattn/emmet-vim'
@@ -116,8 +117,10 @@ nnoremap <buffer> <silent> <leader>oi :YcmCompleter OrganizeImports<CR>
 
 " Prettier formatting
 Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
-" Only format automatically when a prettier config file exists
-let g:prettier#autoformat_config_present = 1
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_config_present = 0
+" Requiring the pragma is annoying
+let g:prettier#autoformat_require_pragma = 0
 
 " Scroll position in status line
 Plug 'ojroques/vim-scrollstatus'
