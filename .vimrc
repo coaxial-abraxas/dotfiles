@@ -286,3 +286,6 @@ augroup AutoRead
   autocmd FileChangedShellPost *
     \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None "
 augroup END
+
+" Folding confuses me
+set nofoldenable

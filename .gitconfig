@@ -20,6 +20,7 @@
   co = checkout
   # From https://github.com/git-tips/tips
   conflicts = diff --name-only --diff-filter=U
+  dp = diff --cached
   edit = "!vim `git ls-files -m` -p"
   frp = "!f() { \
     git fetch --prune &&\
