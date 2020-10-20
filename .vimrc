@@ -146,6 +146,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Run goimports on save
 let g:go_fmt_command = "goimports"
 
+" unix commands to vim commands
+Plug 'tpope/vim-eunuch'
+
 call plug#end()
 
 
@@ -264,24 +267,6 @@ set laststatus=2
 " Enable 256 colors in vim
 set t_Co=256
 
-" Move entire lines up and down
-" (with help from https://stackoverflow.com/a/15399297/2774883)
-" Because OS X is a special snowflake, it doesn't have a readily accessible
-" Alt key so instead we map these commands to the resulting character from
-" pressing ⌥  + j/k
-nnoremap ∆ :m .+1<CR>==
-nnoremap ˚ :m .-2<CR>==
-inoremap ∆ <Esc>:m .+1<CR>==gi
-inoremap ˚ <Esc>:m .-2<CR>==gi
-vnoremap ∆ :m '>+1<CR>gv=gv
-vnoremap ˚ :m '<-2<CR>gv=gv
-" Linux is more reasonable and has Alt keys
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " write with sudo using :w!!
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!

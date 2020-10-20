@@ -1,0 +1,13 @@
+snippet snip "UltiSnips snippet"
+snippet ${1:mysnip} "${2:Snippet description}"
+  ${3:The expanded text}
+`!p snip.rv = "endsnippet"`
+endsnippet
+
+snippet ph "Snippet placeholder"
+  \$\{${1:0}\}
+endsnippet
+
+snippet vph "Snippet visual placeholder"
+  \$\{VISUAL:${1:value}\}
+endsnippet
